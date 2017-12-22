@@ -1,0 +1,379 @@
+<resources>
+    <string name="app_name">Fastgo_User</string>
+    <array name="consume_center">
+        <item>寄往中转仓</item>
+        <item>转运包裹</item>
+    </array>
+    <array name="address_center">
+        <item>收件人</item>
+        <item>发件人</item>
+    </array>
+    <array name="order_center">
+        <item>全部</item>
+        <item>未入库</item>
+        <item>已入库</item>
+        <item>待付款</item>
+        <item>已付款</item>
+        <item>退单</item>
+        <item>国内派送</item>
+    </array>
+    <array name="manager_center">
+        <item>全部</item>
+        <item>预报下单</item>
+        <item>入库包裹</item>
+        <item>出库包裹</item>
+        <item>问题包裹</item>
+    </array>
+    <array name="feedback_center">
+        <item>包裹问题</item>
+        <item>运单问题</item>
+        <item>其他问题</item>
+    </array>
+    <array name="package_center">
+        <item>待报价</item>
+        <item>待付款</item>
+        <item>已完成</item>
+    </array>
+    <string name="main_home">国际转运</string>
+    <string name="main_package">本地直邮</string>
+    <string name="main_service">服务</string>
+    <string name="main_message">海淘留言板</string>
+    <string name="main_my">我</string>
+
+    <string name="add_card_title">请绑定信用卡</string>
+    <string name="add_card_prompt">请绑定持卡人本人的信用卡</string>
+    <string name="add_card_name">持卡人</string>
+    <string name="add_card_phone">手机号</string>
+    <string name="add_card_code">验证码</string>
+    <string name="add_card_card">卡号</string>
+    <string name="add_card_cvv2">CVV2码</string>
+    <string name="add_card_enter">请输入</string>
+    <string name="add_card_code_get">获取验证码</string>
+    <string name="add_card_enter_code">请输入验证码</string>
+    <string name="card_title">请选择信用卡</string>
+    <string name="add_card_sure">立即绑定</string>
+    <string name="add_card_choose_address">请选择国家</string>
+
+    <string name="balance_detail">明细</string>
+    <string name="balance_title">我的余额</string>
+    <string name="balance_residue">剩余余额</string>
+    <string name="balance_recharge">充值</string>
+    <string name="balance_withdrawals">提现</string>
+
+
+    <string name="dialog_success_package">您的包裹已</string>
+    <string name="dialog_success_success">成功添加</string>
+    <string name="dialog_success_continue">是否继续添加</string>
+    <string name="dialog_success_sure">继续添加</string>
+    <string name="dialog_success_leave">离开</string>
+
+    <string name="add_address_country">国家</string>
+    <string name="add_address_name">请填写收件人姓名</string>
+    <string name="add_address_name_enter">收件人姓名</string>
+    <string name="add_address_phone">请填写收件人手机号</string>
+    <string name="add_address_name_sender">请填写发件人姓名</string>
+    <string name="add_address_phone_sender">请填写发件人手机号</string>
+    <string name="add_address_city">请选择城市</string>
+    <string name="add_address_province">省/州</string>
+    <string name="add_address_address">请填写详细地址</string>
+    <string name="add_address_code">请填写收件人身份证号</string>
+    <string name="add_address_code_sender">请填写发件人身份证号</string>
+    <string name="add_address_zip_code">请填写邮编</string>
+    <string name="add_address_default">设为默认地址</string>
+    <string name="add_address_add">立即添加</string>
+    <string name="add_address_choose">请选择</string>
+    <string name="address_title">收货地址</string>
+    <string name="address_add">添加</string>
+    <string name="add_add_address">添加收货地址</string>
+    <string name="add_add_address1">地址一</string>
+    <string name="add_add_address2">地址二</string>
+    <string name="add_add_code">编码</string>
+    <string name="add_add_title">请务必用英文填写</string>
+    <string name="add_add_detail">包裹详情</string>
+
+    <string name="add_package_two_way">双向转运包裹到国内外</string>
+    <string name="add_package_price">只收取物流商规定费用</string>
+    <string name="add_package_know">了解费用></string>
+    <string name="add_package_enter_fastgo">请填写寄往Fastgo的国内包裹</string>
+    <string name="add_package_number">物流单号</string>
+    <string name="add_package_shop">物流类型</string>
+    <string name="add_package_content">包裹内容</string>
+    <string name="add_package_enter_content">请填写包裹内容</string>
+    <string name="add_package_enter_number">请手动填写或扫一扫物流单号</string>
+
+    <string name="coupon_title">我的优惠券</string>
+    <string name="supplies_name">耗材名称</string>
+    <string name="supplies_number">耗材数量</string>
+
+    <string name="consume_name">姓名</string>
+    <string name="consume_goods_name">物品名称</string>
+    <string name="board_zan">点赞(</string>
+    <string name="board_add">留言</string>
+
+    <string name="home_system">系统消息</string>
+    <string name="home_transfer_address">中转地址</string>
+    <string name="home_have_been_sent">包裹管理</string>
+    <string name="home_logistics_query">物流查询</string>
+    <string name="home_logistics_result">物流查询结果</string>
+    <string name="home_have_been_arrived">包裹打包</string>
+    <string name="home_problem">您知道哪些是禁运物品吗?</string>
+    <string name="home_add_transport">添加转运包裹</string>
+    <string name="home_how_transport">包裹如何转运</string>
+    <string name="home_new">最新资讯</string>
+    <string name="home_add">ADD TRANSPORT PARCELS</string>
+    <string name="home_how">HOW TO TRANSPORT</string>
+    <string name="home_latest">LATEST NEWS</string>
+
+    <string name="integral_title">我的积分</string>
+    <string name="integral_residue">剩余积分</string>
+    <string name="integral_rule">积分规则</string>
+    <string name="integral_obtain">获取</string>
+    <string name="integral_content">积分是根据规则，由用户消费转换过来的，积分可以用来确定用户等级和折扣。</string>
+    <string name="integral_ues">使用</string>
+
+    <string name="logistics_query">立即查询</string>
+
+    <string name="my_title">我的</string>
+    <string name="my_balance">余额</string>
+    <string name="my_coupon">优惠券</string>
+    <string name="my_integral">积分</string>
+    <string name="my_feedback">问题反馈</string>
+    <string name="my_address">地址管理</string>
+    <string name="my_statistics">包裹统计</string>
+    <string name="my_safe">安全中心</string>
+    <string name="my_about">关于我们</string>
+    <string name="my_order">我的运单</string>
+    <string name="my_supplies">耗材使用统计</string>
+    <string name="my_consume">消费统计</string>
+    <string name="my_balance_pay">余额支付</string>
+
+
+    <string name="statistics_time_choose">时间筛选</string>
+    <string name="statistics_rmb">统计：¥</string>
+    <string name="statistics_order">运单号</string>
+    <string name="statistics_price">费用</string>
+    <string name="statistics_time">时间</string>
+
+    <string name="feedback_add">添加问题反馈</string>
+    <string name="feedback_pending">待处理...</string>
+    <string name="feedback_back">已反馈...</string>
+    <string name="feedback_order">运单号：</string>
+    <string name="feedback_result">反馈结果：</string>
+    <string name="feedback_time">提交时间：</string>
+    <string name="feedback_priority">请选择问题优先级</string>
+    <string name="feedback_enter_order">请填写运单号</string>
+    <string name="feedback_type">请选择问题类型</string>
+    <string name="feedback_describe">问题描述：</string>
+    <string name="feedback_content">问题备注：</string>
+    <string name="feedback_enclosure">请上传附件：</string>
+    <string name="feedback_submit">提交</string>
+
+    <string name="order_hint">请输入运单/收件人</string>
+    <string name="order_num">转运单号：</string>
+    <string name="order_name">收件人：</string>
+    <string name="order_editor">编辑</string>
+    <string name="order_return">退件</string>
+    <string name="order_track">跟踪</string>
+    <string name="order_price">费用：¥</string>
+    <string name="order_channel">渠&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;道：</string>
+    <string name="order_goods">物&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;品：</string>
+    <string name="order_freight">运费/税费：</string>
+    <string name="order_protection">物品保价/保价费用：</string>
+    <string name="order_remarks">运单备注：</string>
+    <string name="order_storage">入库时间：</string>
+    <string name="order_creat">创建时间：</string>
+    <string name="order_payment">付款时间：</string>
+    <string name="order_name_space">收&#160;件&#160;人：</string>
+    <string name="order_phone">手&#160;机&#160;号：</string>
+    <string name="order_address">地&#160;&#160;&#160;&#160;&#160;&#160;址：</string>
+    <string name="order_zip_code">邮&#160;&#160;&#160;&#160;&#160;&#160;编：</string>
+    <string name="order_goods_message">物品信息</string>
+    <string name="order_goods_name">商品名称</string>
+    <string name="order_type">类别</string>
+    <string name="order_brand">品牌</string>
+    <string name="order_format">规格</string>
+    <string name="order_number">数量</string>
+    <string name="order_unit_price">单价</string>
+    <string name="order_total">合计</string>
+    <string name="order_weight">包裹总重量：</string>
+    <string name="order_images">发货拍照</string>
+    <string name="order_remark">备注：</string>
+
+    <string name="pay_name">收货人：</string>
+    <string name="pay_address">收货地址：</string>
+    <string name="pay_category">类别：</string>
+    <string name="pay_weight">重量：</string>
+    <string name="pay_all">共计</string>
+    <string name="pay_goods_detail">商品详情</string>
+    <string name="pay_goods">件商品</string>
+    <string name="pay_postage">&#160;&#160;&#160;&#160;邮寄费</string>
+    <string name="pay_used">（可用余额</string>
+    <string name="pay_rmb">元）</string>
+    <string name="pay_alipay">支付宝支付</string>
+    <string name="pay_weixin">微信支付</string>
+    <string name="pay_paypal">PayPal支付</string>
+    <string name="pay_bank">银行卡支付</string>
+    <string name="pay_total">总支付</string>
+    <string name="pay_balance_enter">&#160;&#160;&#160;&#160;余额</string>
+    <string name="pay_payment">立即付款</string>
+
+    <string name="recharge_alipay">支付宝</string>
+    <string name="recharge_wechat">微信</string>
+    <string name="recharge_paypal">PayPal</string>
+    <string name="recharge_bank">信用卡</string>
+    <string name="recharge_price">充值金额</string>
+    <string name="recharge_enter_price">请输入金额</string>
+    <string name="recharge_sure">确认充值</string>
+    <string name="recharge_fastgo">FastGo安全充值</string>
+
+    <string name="safe_change_password">密码修改</string>
+    <string name="safe_check_phone">手机验证修改密码</string>
+    <string name="safe_change_phone">手机修改</string>
+    <string name="safe_check_password">输入密码修改手机号</string>
+    <string name="safe_email_not">邮箱未绑定</string>
+    <string name="safe_check_code">邮箱验证码绑定邮箱</string>
+    <string name="safe_change_email">邮箱修改</string>
+    <string name="safe_binding_email">邮箱绑定</string>
+    <string name="safe_change_emails">修改邮箱</string>
+    <string name="safe_check_code_email">邮箱验证码修改邮箱</string>
+
+    <string name="email_old">原邮箱</string>
+    <string name="email_new">新邮箱</string>
+    <string name="email_content">点击获取验证码后，我们会向邮箱发送验证码，请注意查收</string>
+    <string name="email_sure">确认修改</string>
+    <string name="email_email">邮箱</string>
+    <string name="email_binding">立即绑定</string>
+
+    <string name="password_new">新密码</string>
+    <string name="password_sure">确认新密码</string>
+    <string name="password_content">点击获取验证码后，我们会向该手机号发送验证码，请注意查收</string>
+
+    <string name="phone_password">请输入密码</string>
+    <string name="phone_new_phone">新手机号</string>
+
+    <string name="service_problem">常见问题</string>
+    <string name="service_bill">禁运物品，集运条例</string>
+    <string name="service_process">流程简介</string>
+    <string name="service_how_to_order">不知道怎么下单，看这里哦</string>
+    <string name="service_where">看看你的包裹到哪里了呢</string>
+    <string name="service_quotation">运费报价</string>
+    <string name="service_shipping_report">查看最新的运费报表</string>
+    <string name="service_rate_query">汇率查询</string>
+    <string name="service_exchange_rate">了解今日汇率</string>
+
+    <string name="transfer_content">转运包裹先寄到Fastgo中转仓，分别拆包转运哦~收件人仓库地址是Fastgo收录包裹的唯一标识，不可更改！</string>
+    <string name="transfer_phone">收件人电话</string>
+    <string name="transfer_address">仓库地址</string>
+    <string name="transfer_one_key_copy">一键复制</string>
+    <string name="transfer_one_key_default">设为默认</string>
+    <string name="transfer_copy">复制</string>
+    <string name="transfer_consult">咨询禁运客服</string>
+    <string name="transfer_quotation">转运常见问题</string>
+    <string name="transfer_contents">亲~邮寄物品分国际管制和国内管制哦~“禁运物品”寄到 Fastgo中转仓也没有办法帮您转运出去呢！为了给你更好的转运体验，请跟随我一起了解，“禁运物品”有哪些吧</string>
+
+    <string name="withdrawals_balance">可用余额</string>
+    <string name="withdrawals_price">提现金额</string>
+    <string name="withdrawals_rmb">元</string>
+    <string name="withdrawals_total">全部提现</string>
+    <string name="withdrawals_sure">确认提现</string>
+    <string name="withdrawals_fastgo">FastGo安全提现</string>
+
+    <string name="setting_setting">设置</string>
+    <string name="setting_keep">保存</string>
+    <string name="setting_head">头像</string>
+    <string name="setting_nickname">昵称</string>
+    <string name="setting_sex">性别</string>
+    <string name="setting_logout">注销</string>
+    <string name="setting_default">默认</string>
+    <string name="setting_edit">修改</string>
+    <string name="setting_delete">删除</string>
+
+    <string name="login_account">用户名</string>
+    <string name="login_password">密码</string>
+    <string name="login_forget_password">忘记密码？</string>
+    <string name="login_find_password">忘记密码</string>
+    <string name="login_login">登录</string>
+    <string name="login_third_login">第三方登录</string>
+    <string name="login_account_no">还没有账号？</string>
+    <string name="login_register">立即注册</string>
+
+    <string name="register_phone">请输入手机号</string>
+    <string name="register_agreement">我已认真阅读《注册协议》</string>
+    <string name="register_register">注册</string>
+    <string name="register_have">有账号？</string>
+    <string name="register_login">立即登录</string>
+
+
+    <string name="board_submit">立即提交审核</string>
+    <string name="board_hint">说点什么吧...</string>
+    <string name="home_prediction">包裹预报</string>
+    <string name="local_prediction">直邮下单</string>
+    <string name="board_storage">入库包裹</string>
+    <string name="board_library">出库包裹</string>
+    <string name="board_problem">问题包裹</string>
+    <string name="home_prediction_btn">添加中转包裹（预报）</string>
+    <string name="board_storage_btn">添加中转包裹（入库）</string>
+    <string name="board_library_btn">添加中转包裹（出库）</string>
+    <string name="board_problem_btn">添加中转包裹（问题）</string>
+    <string name="transfer_add">创建运单</string>
+    <string name="transfer_merge">合并运单</string>
+    <string name="transfer_arrived">积分抵现</string>
+    <string name="transfer_surplus">（剩余</string>
+    <string name="transfer_s">积分，可抵现</string>
+    <string name="transfer_get">（获得</string>
+    <string name="transfer_interger">积分）</string>
+    <string name="add_channel">发货渠道</string>
+    <string name="add_original">原箱</string>
+    <string name="add_branch">分箱</string>
+    <string name="add_join">合箱</string>
+    <string name="add_number">运单个数</string>
+    <string name="declaration_value">申报价值</string>
+    <string name="declaration_taxation">税费</string>
+    <string name="declaration_Insured">物品保价</string>
+    <string name="declaration_price">保价费用</string>
+    <string name="declaration_weigh">预估重量</string>
+    <string name="declaration_remark">备注</string>
+    <string name="declaration_goods">申报商品</string>
+    <string name="declaration_service">增值服务</string>
+    <string name="declaration_box">购买箱子</string>
+    <string name="declaration_type">加固方式</string>
+    <string name="declaration_count">内件清点</string>
+    <string name="declaration_picture">拍照</string>
+    <string name="declaration_inspection">验货</string>
+    <string name="declaration_bill">购物单据</string>
+    <string name="declaration_sender">发件人信息</string>
+    <string name="sender_choose">选择发件人</string>
+    <string name="sender_reminder">温馨提示：</string>
+    <string name="sender_content">英文填写，为空就默认仓库信息作为发货人信息</string>
+    <string name="sender_hint">收件人姓名/电话/身份证号码/发货日期</string>
+    <string name="sender_time">发货日期筛选</string>
+    <string name="sender_handling">异常处理</string>
+    <string name="sender_estimate">修改预估重量：</string>
+    <string name="sender_set">请填写预估重量（kg）</string>
+    <string name="goods_editor">商品编辑</string>
+    <string name="goods_add">添加物品</string>
+    <string name="goods_name">商品名称</string>
+    <string name="goods_type">类别</string>
+    <string name="goods_brand">品牌</string>
+    <string name="goods_spec">规格</string>
+    <string name="goods_number">数量</string>
+    <string name="goods_price">单价</string>
+    <string name="goods_total">合计</string>
+    <string name="order_count">请填写运单号</string>
+    <string name="order_shop">请选择快递公司</string>
+    <string name="order_center">请选择中转仓</string>
+    <string name="order_contry">请选择国家</string>
+    <string name="order_code">身份证号</string>
+    <string name="package_details">查询包裹详情</string>
+    <string name="package_online">在线下单</string>
+    <string name="package_upload">上传照片</string>
+    <string name="package_finish">完成打包</string>
+    <string name="package_completed"> 已完成</string>
+    <string name="package_detail"> 采购明细</string>
+    <string name="package_point"> 代收点</string>
+    <string name="package_warehouse"> 小仓库</string>
+    <string name="package_add"> 添加</string>
+    <string name="login_cancel"> 取消</string>
+    <string name="login_common"> 普通用户</string>
+    <string name="login_shop"> 网店用户</string>
+</resources>

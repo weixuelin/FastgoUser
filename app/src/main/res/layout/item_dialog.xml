@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_fourty"
+        android:background="@color/all_bg">
+
+        <TextView
+            android:id="@+id/text_dialog_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/height_ten"
+            android:paddingRight="@dimen/height_ten"
+            android:text="取消"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_13" />
+
+        <TextView
+            android:id="@+id/text_dialog_center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/height_ten"
+            android:paddingRight="@dimen/height_ten"
+            android:text="请选择时间"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_13" />
+
+        <TextView
+            android:id="@+id/text_dialog_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/height_ten"
+            android:paddingRight="@dimen/height_ten"
+            android:text="确认"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_13" />
+
+    </RelativeLayout>
+
+</LinearLayout>

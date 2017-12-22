@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/all_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_fifty"
+        android:background="@drawable/red_top_bg">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/home_title" />
+
+        <RelativeLayout
+            android:id="@+id/relative_home_message"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/height_ten">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/home_message" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/all_btn"
+                android:paddingBottom="1dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:paddingTop="1dp"
+                android:text="5"
+                android:textColor="@color/main_red"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <com.wt.fastgo_user.widgets.MyScrollView
+        android:id="@+id/myScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:descendantFocusability="blocksDescendants"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/relative_home_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/height_ten"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/home_question" />
+
+                        <View
+                            android:layout_width="@dimen/height_line"
+                            android:layout_height="@dimen/height_thirty"
+                            android:layout_marginLeft="@dimen/height_ten"
+                            android:layout_marginRight="@dimen/height_ten"
+                            android:background="@color/line" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/height_fifty"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:lines="1"
+                                android:text="@string/home_problem"
+                                android:textColor="@color/main_black"
+                                android:textSize="@dimen/text_size_14" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/height_ten"
+                        android:src="@drawable/red_right" />
+
+                </RelativeLayout>
+
+                <com.wt.fastgo_user.widgets.ImageCycleView
+                    android:id="@+id/ad_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="160dip" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linear_home_transfer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/home_transfer" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/height_five"
+                            android:text="@string/home_transfer_address"
+                            android:textColor="@color/main_black"
+                            android:textSize="@dimen/text_size_13" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_home_been"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/home_been" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/height_five"
+                            android:text="@string/home_have_been_sent"
+                            android:textColor="@color/main_black"
+                            android:textSize="@dimen/text_size_13" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_home_logistics"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/home_logistics" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/height_five"
+                            android:text="@string/home_have_been_arrived"
+                            android:textColor="@color/main_black"
+                            android:textSize="@dimen/text_size_13" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_home_have_to"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/home_have_to" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/height_five"
+                            android:text="@string/home_logistics_query"
+                            android:textColor="@color/main_black"
+                            android:textSize="@dimen/text_size_13" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/include_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_fourty"
+                        android:layout_marginTop="@dimen/height_ten"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:gravity="center"
+                                android:text="@string/home_prediction"
+                                android:textColor="@color/main_black"
+                                android:textSize="@dimen/text_size_12" />
+
+                            <View
+                                android:layout_width="40dp"
+                                android:layout_height="2dp"
+                                android:background="@color/main_red" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:gravity="center"
+                                android:text="@string/board_storage"
+                                android:textColor="@color/main_black"
+                                android:textSize="@dimen/text_size_12" />
+
+                            <View
+                                android:layout_width="40dp"
+                                android:layout_height="2dp"
+                                android:background="@color/main_red"
+                                android:visibility="invisible" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:gravity="center"
+                                android:text="@string/board_library"
+                                android:textColor="@color/main_black"
+                                android:textSize="@dimen/text_size_12" />
+
+                            <View
+                                android:layout_width="40dp"
+                                android:layout_height="2dp"
+                                android:background="@color/main_red"
+                                android:visibility="invisible" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:gravity="center"
+                                android:text="@string/board_problem"
+                                android:textColor="@color/main_black"
+                                android:textSize="@dimen/text_size_12" />
+
+                            <View
+                                android:layout_width="40dp"
+                                android:layout_height="2dp"
+                                android:background="@color/main_red"
+                                android:visibility="invisible" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_home_center"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_fourty"
+                        android:layout_margin="@dimen/height_ten"
+                        android:background="@drawable/btn_red_side"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/home_add" />
+
+                        <TextView
+                            android:id="@+id/text_home_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/height_five"
+                            android:text="@string/home_prediction_btn"
+                            android:textColor="@color/main_red"
+                            android:textSize="@dimen/text_size_12" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.wt.fastgo_user.widgets.ScrollViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/include_layoutq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/all_bg"
+                android:orientation="vertical">
+
+
+                <View
+                    android:id="@+id/view_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_ten"
+                    android:background="@color/all_bg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_fourty"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linear_home_prediction"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:text="@string/home_prediction"
+                            android:textColor="@color/main_black"
+                            android:textSize="@dimen/text_size_12" />
+
+                        <View
+                            android:id="@+id/view_home_prediction"
+                            android:layout_width="40dp"
+                            android:layout_height="2dp"
+                            android:background="@color/main_red" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_home_storage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:text="@string/board_storage"
+                            android:textColor="@color/main_black"
+                            android:textSize="@dimen/text_size_12" />
+
+                        <View
+                            android:id="@+id/view_home_storage"
+                            android:layout_width="40dp"
+                            android:layout_height="2dp"
+                            android:background="@color/main_red"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_home_library"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:text="@string/board_library"
+                            android:textColor="@color/main_black"
+                            android:textSize="@dimen/text_size_12" />
+
+                        <View
+                            android:id="@+id/view_home_library"
+                            android:layout_width="40dp"
+                            android:layout_height="2dp"
+                            android:background="@color/main_red"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_home_problem"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:gravity="center"
+                            android:text="@string/board_problem"
+                            android:textColor="@color/main_black"
+                            android:textSize="@dimen/text_size_12" />
+
+                        <View
+                            android:id="@+id/view_home_problem"
+                            android:layout_width="40dp"
+                            android:layout_height="2dp"
+                            android:background="@color/main_red"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_fourty"
+                    android:layout_margin="@dimen/height_ten"
+                    android:background="@drawable/btn_red_side"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_add" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/height_five"
+                        android:text="@string/home_prediction_btn"
+                        android:textColor="@color/main_red"
+                        android:textSize="@dimen/text_size_12" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </com.wt.fastgo_user.widgets.MyScrollView>
+
+</LinearLayout>

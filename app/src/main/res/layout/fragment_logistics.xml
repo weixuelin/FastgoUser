@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/height_fifty"
+        android:src="@drawable/logistics_logo" />
+
+    <EditText
+        android:id="@+id/edit_logistics_number"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_fourty"
+        android:layout_marginLeft="@dimen/height_twenty"
+        android:layout_marginRight="@dimen/height_twenty"
+        android:layout_marginTop="@dimen/height_fourty"
+        android:background="@drawable/btn_grey"
+        android:hint="@string/add_package_number"
+        android:paddingLeft="@dimen/height_ten"
+        android:paddingRight="@dimen/height_ten"
+        android:textColor="@color/main_black"
+        android:textColorHint="@color/main_grey9"
+        android:textSize="@dimen/text_size_13" />
+
+    <RelativeLayout
+        android:id="@+id/relative_logistics_business"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_fourty"
+        android:layout_marginLeft="@dimen/height_twenty"
+        android:layout_marginRight="@dimen/height_twenty"
+        android:layout_marginTop="@dimen/height_ten"
+        android:background="@drawable/btn_grey">
+
+        <TextView
+            android:id="@+id/text_logistics_business"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/height_ten"
+            android:hint="@string/add_package_shop"
+            android:textColor="@color/main_black"
+            android:textColorHint="@color/main_grey9"
+            android:textSize="@dimen/text_size_13" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/height_ten"
+            android:src="@drawable/my_right" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_logistics_query"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_fourty"
+        android:layout_marginLeft="@dimen/height_twenty"
+        android:layout_marginRight="@dimen/height_twenty"
+        android:layout_marginTop="@dimen/height_twenty"
+        android:background="@drawable/btn_red"
+        android:text="@string/logistics_query"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/height_thirty"
+        android:src="@drawable/logistics_watermark" />
+
+</LinearLayout>

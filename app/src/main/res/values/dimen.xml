@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="action_bar_height">45dp</dimen>
+    <dimen name="height_fifty">50dp</dimen>
+    <dimen name="height_fourty">40dp</dimen>
+    <dimen name="height_ten">10dp</dimen>
+    <dimen name="height_twenty">20dp</dimen>
+    <dimen name="height_thirty">30dp</dimen>
+    <dimen name="height_five">5dp</dimen>
+    <dimen name="height_line">1px</dimen>
+
+    <!--文字的大小-->
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="text_size_11">11sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+</resources>

@@ -1,0 +1,113 @@
+package com.wt.fastgo_user.fragment.me;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.wt.fastgo_user.R;
+import com.wt.fastgo_user.fragment.BaseFragment;
+import com.wt.fastgo_user.ui.ClickButtonActivity;
+import com.wt.fastgo_user.widgets.ConstantUtils;
+import com.wt.fastgo_user.widgets.StartUtils;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
+/**
+ * Created by Administrator on 2017/10/19 0019.
+ */
+
+public class AddDirectmailFragment extends BaseFragment {
+    Unbinder unbinder;
+    @BindView(R.id.edit_address_name)
+    EditText editAddressName;
+    @BindView(R.id.edit_address_phone)
+    EditText editAddressPhone;
+    @BindView(R.id.text_add1)
+    TextView textAdd1;
+    @BindView(R.id.edit_address_card)
+    EditText editAddressCard;
+    private int num;
+
+    @Override
+    protected View getSuccessView() {
+        View view = View.inflate(getActivity(), R.layout.fragment_add_address, null);
+        ButterKnife.bind(this, view);
+        if (getArguments() != null) {
+            num = getArguments().getInt("num");
+        }
+        setListener();
+        isPrepared = true;
+        return view;
+    }
+
+    public static AddDirectmailFragment newInstance(int num) {
+
+        Bundle args = new Bundle();
+        args.putInt("num", num);
+        AddDirectmailFragment fragment = new AddDirectmailFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    protected void loadData() {
+        if (!isPrepared || !isVisable) {
+            return;
+        }
+        //填充各控件的数据
+    }
+    private void setListener() {
+        if (num == 0) {
+            editAddressCard.setHint(R.string.add_address_code);
+            editAddressName.setHint(R.string.add_address_name);
+            editAddressPhone.setHint(R.string.add_address_phone);
+        } else {
+            editAddressCard.setHint(R.string.add_address_code_sender);
+            editAddressName.setHint(R.string.add_address_name_sender);
+            editAddressPhone.setHint(R.string.add_address_phone_sender);
+        }
+    }
+
+
+    @Override
+    protected void setActionBar() {
+//        ClickButtonActivity activity = (ClickButtonActivity) getActivity();
+//        activity.relativeTop.setVisibility(View.GONE);
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        return false;
+    }
+
+    @Override
+    protected Object requestData() {
+        return ConstantUtils.STATE_SUCCESSED;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+//        ButterKnife.unbind(this);
+        unbinder.unbind();
+    }
+
+    @Override
+    public void onClick(View v) {
+        StartUtils.startActivityById(getActivity(), v.getId());
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+}

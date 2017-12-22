@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_transfer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_transfer_merge"
+        android:layout_marginBottom="@dimen/height_ten"
+        android:background="@color/white" />
+
+    <Button
+        android:id="@+id/btn_transfer_merge"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_fourty"
+        android:layout_alignParentBottom="true"
+        android:background="@color/main_red"
+        android:text="@string/transfer_merge"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_13" />
+</RelativeLayout>

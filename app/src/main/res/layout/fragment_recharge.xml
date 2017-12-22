@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/all_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_fifty"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/linear_recharge_back"
+            android:layout_width="@dimen/height_fifty"
+            android:layout_height="@dimen/height_fifty"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/setting_back" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/balance_recharge"
+            android:textColor="@color/main_black"
+            android:textSize="@dimen/text_size_14" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/height_ten"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relative_recharge_zhifubao"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_fourty">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/height_ten"
+                android:src="@drawable/recharge_zhifubao" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="50dp"
+                android:text="@string/recharge_alipay"
+                android:textColor="@color/main_black"
+                android:textSize="@dimen/text_size_13" />
+
+            <ImageView
+                android:id="@+id/image_recharge_zhifubao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/height_ten"
+                android:src="@drawable/recharge_select" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_line"
+            android:background="@color/line" />
+
+        <RelativeLayout
+            android:id="@+id/relative_recharge_weixin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_fourty">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/height_ten"
+                android:src="@drawable/recharge_weixin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="50dp"
+                android:text="@string/recharge_wechat"
+                android:textColor="@color/main_black"
+                android:textSize="@dimen/text_size_13" />
+
+            <ImageView
+                android:id="@+id/image_recharge_weixin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/height_ten"
+                android:src="@drawable/recharge_select"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_line"
+            android:background="@color/line" />
+
+        <RelativeLayout
+            android:id="@+id/relative_recharge_paypal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_fourty">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/height_ten"
+                android:src="@drawable/recharge_paypal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="50dp"
+                android:text="@string/recharge_paypal"
+                android:textColor="@color/main_black"
+                android:textSize="@dimen/text_size_13" />
+
+            <ImageView
+                android:id="@+id/image_recharge_paypal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/height_ten"
+                android:src="@drawable/recharge_select"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/height_ten"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/height_ten"
+            android:layout_marginTop="@dimen/height_twenty"
+            android:text="@string/recharge_price"
+            android:textColor="@color/main_black"
+            android:textSize="@dimen/text_size_13" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/height_ten"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/height_ten"
+                android:text="￥"
+                android:textColor="@color/main_black"
+                android:textSize="@dimen/text_size_18" />
+
+            <EditText
+                android:id="@+id/edit_recharge_price"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_fourty"
+                android:background="@color/transparent"
+                android:hint="@string/recharge_enter_price"
+                android:inputType="numberDecimal"
+                android:paddingLeft="@dimen/height_ten"
+                android:textColor="@color/main_black"
+                android:textColorHint="@color/main_grey9"
+                android:textSize="@dimen/text_size_13" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_line"
+            android:layout_marginLeft="@dimen/height_ten"
+            android:layout_marginRight="@dimen/height_ten"
+            android:background="@color/line" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_fourty"
+            android:layout_margin="@dimen/height_ten"
+            android:background="@drawable/btn_red"
+            android:text="@string/recharge_sure"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/height_thirty"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/recharge_safe" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/height_five"
+            android:text="@string/recharge_fastgo"
+            android:textColor="@color/main_grey6"
+            android:textSize="@dimen/text_size_13" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/all_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/item_top"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_add_content"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="@color/transparent"
+            android:hint="@string/board_hint"
+            android:textColor="@color/black"
+            android:gravity="left|top"
+            android:padding="@dimen/height_ten"
+            android:textColorHint="@color/main_grey9"
+            android:textSize="@dimen/text_size_13" />
+
+        <com.wt.fastgo_user.widgets.MyGridview
+            android:id="@+id/noScrollgridview"
+            android:layout_width="290dp"
+            android:layout_height="350dp"
+            android:layout_marginBottom="@dimen/height_ten"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/height_ten"
+            android:horizontalSpacing="3dp"
+            android:numColumns="4"
+            android:scrollbars="none"
+            android:verticalSpacing="5dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_board_submit"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/white"
+        android:text="@string/board_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_fourty"
+        android:layout_margin="@dimen/height_twenty"
+        android:background="@drawable/btn_red" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_twenty"
+        android:text="您的留言已提交，待审核通过后展示在留言板"
+        android:textColor="@color/orange"
+        android:textSize="@dimen/text_size_13" />
+</LinearLayout>
