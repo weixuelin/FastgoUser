@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/all_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/linear_transfer_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_fourty"
+        android:layout_margin="@dimen/height_ten"
+        android:background="@drawable/btn_white">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:hint="@string/order_hint"
+            android:paddingLeft="@dimen/height_ten"
+            android:paddingRight="@dimen/height_fifty"
+            android:textColor="@color/main_black"
+            android:textColorHint="@color/main_grey9"
+            android:textSize="@dimen/text_size_12" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_red_right0"
+            android:paddingLeft="@dimen/height_five"
+            android:src="@drawable/order_search" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_transfer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+
+</LinearLayout>
