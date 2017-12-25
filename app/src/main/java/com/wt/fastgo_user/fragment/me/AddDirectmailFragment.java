@@ -42,6 +42,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -53,6 +54,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * Created by Administrator on 2017/10/19 0019.
@@ -272,6 +274,12 @@ public class AddDirectmailFragment extends TakePhotoFragment {
                 .url(SYApplication.path_url + "/common/category/get_city")
                 .addParams("id", id_city)
                 .addParams("type", type).build();
+//        try {
+//            Response response =  call.execute();
+//            response.isSuccessful()
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         call.execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
@@ -307,6 +315,7 @@ public class AddDirectmailFragment extends TakePhotoFragment {
         });
     }
 
+
     private void selectAddress() {
         map = new HashMap<>();
         map.put(3, list);
@@ -324,22 +333,12 @@ public class AddDirectmailFragment extends TakePhotoFragment {
         PickerFromUrl.setGetDataFromUrl(new PickerFromUrl.GetDataFromUrl() {
             @Override
             public Key getFromUrlTwo(int keyId) {
-                Key keys = new Key();
-                keys.setList(list);
-                keys.setOneId(keyId);
-                keys.setKey(3);
-                keys.setType(1);
-                return keys;
+                return null;
             }
 
             @Override
             public Key getFromUrlThree(int oneId, int twoId) {
-                Key keys = new Key();
-                keys.setList(list);
-                keys.setOneId(oneId);
-                keys.setKey(3);
-                keys.setType(1);
-                return keys;
+                return null;
             }
         });
         cityPicker.setOnCityItemClickListener(new PickerFromUrl.OnCityItemClickListener() {
