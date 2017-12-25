@@ -43,7 +43,6 @@ import okhttp3.Call;
 
 public class RegisterActivity extends BaseFragment {
 
-
     @BindView(R.id.edit_login_account)
     EditText editLoginAccount;
     @BindView(R.id.image_register_code)
@@ -92,6 +91,7 @@ public class RegisterActivity extends BaseFragment {
         }
         //填充各控件的数据
     }
+
 
     private void message() {
         RequestCall call = SYApplication.postFormBuilder()
@@ -173,7 +173,7 @@ public class RegisterActivity extends BaseFragment {
                 getActivity().finish();
                 break;
 
-            case R.id.btn_login_login://注册
+            case R.id.btn_login_login:  //注册
                 username = editLoginAccount.getText().toString();
                 password = editLoginPassword.getText().toString();
                 password2 = editLoginPassword.getText().toString();
@@ -194,8 +194,10 @@ public class RegisterActivity extends BaseFragment {
                 break;
             case R.id.btn_register_code:
                 mobile = editLoginAccount.getText().toString();
+
 //                blockDialog.show();
 //                runnable_code();
+//
                 break;
 
         }
@@ -233,8 +235,7 @@ public class RegisterActivity extends BaseFragment {
                             public void handleMessage(Message msg) {
                                 if (msg.what == 1
                                         && Integer.parseInt(msg.obj.toString()) >= 0) {
-                                    btnRegisterCode.setText(msg.obj
-                                            .toString() + "s");
+                                    btnRegisterCode.setText(msg.obj.toString() + "s");
                                     btnRegisterCode.setTextColor(getResources().getColor(R.color.white));
                                     btnRegisterCode.setBackgroundResource(R.drawable.btn_greyss);
                                     btnRegisterCode.setClickable(false);

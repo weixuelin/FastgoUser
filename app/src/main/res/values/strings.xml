@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Fastgo_User</string>
+    <string name="app_name">Fastgo</string>
     <array name="consume_center">
         <item>寄往中转仓</item>
         <item>转运包裹</item>

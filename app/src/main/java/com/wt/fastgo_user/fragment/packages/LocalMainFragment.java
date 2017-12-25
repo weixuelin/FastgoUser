@@ -2,26 +2,41 @@ package com.wt.fastgo_user.fragment.packages;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.reflect.TypeToken;
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.adapter.MainPagerAdapter;
+import com.wt.fastgo_user.applaction.SYApplication;
 import com.wt.fastgo_user.fragment.BaseFragment;
+import com.wt.fastgo_user.info.BanInfo;
 import com.wt.fastgo_user.widgets.ConstantUtils;
+import com.wt.fastgo_user.widgets.Glide_Image;
 import com.wt.fastgo_user.widgets.ImageCycleView;
 import com.wt.fastgo_user.widgets.MyScrollView;
 import com.wt.fastgo_user.widgets.ScrollViewPager;
 import com.wt.fastgo_user.widgets.StartUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+import com.zhy.http.okhttp.request.RequestCall;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import okhttp3.Call;
 
 /**
  * Created by Administrator on 2017/12/21 0021.
@@ -85,7 +100,51 @@ public class LocalMainFragment extends BaseFragment implements MyScrollView.OnSc
         setListener();
         isPrepared = true;
         InitViewPager();
+        getBanFromUrl();
         return view;
+    }
+
+    private void getBanFromUrl() {
+        RequestCall call = SYApplication.postFormBuilder()
+                .url(SYApplication.path_url + "/index/banner/lists")
+                .addParams("id", "1")
+                .build();
+
+        call.buildCall(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                Log.i("wwwwww", "wwwww=====" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    int code = json.optInt("code");
+                    if (code == 200) {
+                        ArrayList<BanInfo> listBan = gson.fromJson(json.optString("data"), new TypeToken<List<BanInfo>>() {
+                        }.getType());
+
+                        adView.setImageResources(listBan, new ImageCycleView.ImageCycleViewListener() {
+                            @Override
+                            public void displayImage(String imageURL, ImageView imageView) {
+                                Glide_Image.load(getActivity(), SYApplication.path_url + imageURL, imageView);
+                            }
+
+                            @Override
+                            public void onImageClick(BanInfo info, int postion, View imageView) {
+
+                            }
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
     }
 
     @Override

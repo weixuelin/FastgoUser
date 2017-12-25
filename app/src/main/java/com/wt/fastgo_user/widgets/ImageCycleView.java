@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 
 
 import com.wt.fastgo_user.R;
+import com.wt.fastgo_user.info.BanInfo;
 import com.wt.fastgo_user.model.ADInfo;
 
 import java.util.ArrayList;
@@ -88,8 +89,7 @@ public class ImageCycleView extends LinearLayout {
         super(context, attrs);
         mContext = context;
         mScale = context.getResources().getDisplayMetrics().density;
-        LayoutInflater.from(context)
-                .inflate(R.layout.view_banner_content, this);
+        LayoutInflater.from(context).inflate(R.layout.view_banner_content, this);
         mBannerPager = (CycleViewPager) findViewById(R.id.pager_banner);
         mBannerPager.setOnPageChangeListener(new GuidePageChangeListener());
         mBannerPager.setOnTouchListener(new OnTouchListener() {
@@ -119,8 +119,7 @@ public class ImageCycleView extends LinearLayout {
      * @param
      * @param imageCycleViewListener
      */
-    public void setImageResources(ArrayList<ADInfo> infoList,
-                                  ImageCycleViewListener imageCycleViewListener) {
+    public void setImageResources(ArrayList<BanInfo> infoList, ImageCycleViewListener imageCycleViewListener) {
         // 清除所有子视图
         mGroup.removeAllViews();
         // 图片广告数量
@@ -130,8 +129,7 @@ public class ImageCycleView extends LinearLayout {
             mImageView = new ImageView(mContext);
             int imageParams = (int) (mScale * 20 + 0.5f);// XP与DP转换，适应不同分辨率
             int imagePadding = (int) (mScale * 5 + 0.5f);
-            LayoutParams layout = new LayoutParams(
-                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            LayoutParams layout = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             layout.setMargins(3, 0, 3, 0);
             mImageView.setLayoutParams(layout);
             // mImageView.setPadding(imagePadding, imagePadding, imagePadding,
@@ -147,8 +145,7 @@ public class ImageCycleView extends LinearLayout {
 //            }
             mGroup.addView(mImageViews[i]);
         }
-        mAdvAdapter = new ImageCycleAdapter(mContext, infoList,
-                imageCycleViewListener);
+        mAdvAdapter = new ImageCycleAdapter(mContext, infoList, imageCycleViewListener);
         mBannerPager.setAdapter(mAdvAdapter);
         startImageTimerTask();
     }
@@ -212,7 +209,7 @@ public class ImageCycleView extends LinearLayout {
         @Override
         public void onPageScrollStateChanged(int state) {
             if (state == ViewPager.SCROLL_STATE_IDLE)
-                startImageTimerTask(); // 开始下次计时
+                startImageTimerTask();  // 开始下次计时
         }
 
         @Override
@@ -249,7 +246,7 @@ public class ImageCycleView extends LinearLayout {
         /**
          * 图片资源列表
          */
-        private ArrayList<ADInfo> mAdList = new ArrayList<ADInfo>();
+        private ArrayList<BanInfo> mAdList = new ArrayList<BanInfo>();
 
         /**
          * 广告图片点击监听器
@@ -258,7 +255,7 @@ public class ImageCycleView extends LinearLayout {
 
         private Context mContext;
 
-        public ImageCycleAdapter(Context context, ArrayList<ADInfo> adList, ImageCycleViewListener imageCycleViewListener) {
+        public ImageCycleAdapter(Context context, ArrayList<BanInfo> adList, ImageCycleViewListener imageCycleViewListener) {
             mContext = context;
             mAdList = adList;
             mImageCycleViewListener = imageCycleViewListener;
@@ -277,12 +274,11 @@ public class ImageCycleView extends LinearLayout {
 
         @Override
         public Object instantiateItem(ViewGroup container, final int position) {
-            String imageUrl = mAdList.get(position).getUrl();
+            String imageUrl = mAdList.get(position).getPath();
             ImageView imageView = null;
             if (mImageViewCacheList.isEmpty()) {
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new LayoutParams(
-                        LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                imageView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
                 imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
             } else {
@@ -333,7 +329,7 @@ public class ImageCycleView extends LinearLayout {
          * @param
          * @param imageView
          */
-        public void onImageClick(ADInfo info, int postion, View imageView);
+        public void onImageClick(BanInfo info, int postion, View imageView);
     }
 
 }

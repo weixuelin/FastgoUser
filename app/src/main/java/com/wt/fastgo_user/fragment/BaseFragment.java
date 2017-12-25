@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.wt.fastgo_user.widgets.BackHandledInterface;
 import com.wt.fastgo_user.widgets.CommonUtils;
 import com.wt.fastgo_user.widgets.ContentPage;
@@ -28,9 +30,12 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     // 标志位，标志Fragment已经初始化完成。
     public boolean isPrepared = false;
 
+    public Gson gson;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        gson = new Gson();
+
         /**
          * 初始化pdLoading
          */
@@ -39,6 +44,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         pdLoading.setMessage("请稍后");
         pdLoading.setCanceledOnTouchOutside(false);
         pdLoading.setCancelable(true);
+
         /**
          * 创建Subscriber容器
          */
@@ -67,6 +73,10 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
         return contentPage;
 
+    }
+
+    public void showShortToast(String str) {
+        Toast.makeText(getActivity(), str, Toast.LENGTH_SHORT).show();
     }
 
     /**

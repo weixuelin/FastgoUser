@@ -29,8 +29,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Response;
 
 public class SYApplication extends Application {
+
     private static Context mContext;
     public static String path_url = "http://192.168.0.254:8092/v1";
+
     private static Handler mHandler;
     private static SharedPreferences sharedPreferences;
     public static String token = "", imei = "", lg = "zh";

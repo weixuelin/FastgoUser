@@ -15,7 +15,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
-
     @BindView(R.id.viewpager)
     NoScrollViewPager viewpager;
     @BindView(R.id.bottom_main)
@@ -44,8 +43,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
-        loginpPreferences = getSharedPreferences("userLogin",
-                Context.MODE_PRIVATE);
+        loginpPreferences = getSharedPreferences("userLogin", Context.MODE_PRIVATE);
         type = loginpPreferences.getString("type", "");
         adapter = new MainPagerAdapter(getSupportFragmentManager(),type);
         viewpager.setAdapter(adapter);

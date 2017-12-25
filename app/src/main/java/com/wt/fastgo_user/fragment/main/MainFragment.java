@@ -2,30 +2,44 @@ package com.wt.fastgo_user.fragment.main;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.reflect.TypeToken;
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.adapter.MainPagerAdapter;
+import com.wt.fastgo_user.applaction.SYApplication;
 import com.wt.fastgo_user.fragment.BaseFragment;
+import com.wt.fastgo_user.info.BanInfo;
 import com.wt.fastgo_user.widgets.ConstantUtils;
+import com.wt.fastgo_user.widgets.Glide_Image;
 import com.wt.fastgo_user.widgets.ImageCycleView;
 import com.wt.fastgo_user.widgets.MyScrollView;
 import com.wt.fastgo_user.widgets.ScrollViewPager;
 import com.wt.fastgo_user.widgets.StartUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+import com.zhy.http.okhttp.request.RequestCall;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import okhttp3.Call;
 
-/**
- * Created by Administrator on 2017/10/12 0012.
- */
+import static com.hyphenate.easeui.model.EaseDefaultEmojiconDatas.getData;
+
 
 public class MainFragment extends BaseFragment implements MyScrollView.OnScrollListener {
     Unbinder unbinder;
@@ -76,15 +90,69 @@ public class MainFragment extends BaseFragment implements MyScrollView.OnScrollL
     @BindView(R.id.linear_home_center)
     LinearLayout linearHomeCenter;
 
+
+
     @Override
     protected View getSuccessView() {
+
+        Log.i("wwwwww","执行到此=======");
+
         View view = View.inflate(getActivity(), R.layout.fragment_home, null);
+
+        Log.i("wwwwww","执行到此=======");
+
         unbinder = ButterKnife.bind(this, view);
         setListener();
         isPrepared = true;
         InitViewPager();
+        getDataFromUrl();
+
         return view;
     }
+
+
+    private void getDataFromUrl() {
+        RequestCall call = SYApplication.postFormBuilder()
+                .url(SYApplication.path_url + "/index/banner/lists")
+                .addParams("id", "2")
+                .build();
+        call.buildCall(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                Log.i("wwwwww", "wwwww=====" + response);
+                try {
+                    JSONObject json = new JSONObject(response);
+                    int code = json.optInt("code");
+                    if (code == 200) {
+                        ArrayList<BanInfo> listBan = gson.fromJson(json.optString("data"), new TypeToken<List<BanInfo>>() {
+                        }.getType());
+
+                        adView.setImageResources(listBan, new ImageCycleView.ImageCycleViewListener() {
+                            @Override
+                            public void displayImage(String imageURL, ImageView imageView) {
+                                Glide_Image.load(getActivity(), SYApplication.path_url + imageURL, imageView);
+                            }
+
+                            @Override
+                            public void onImageClick(BanInfo info, int postion, View imageView) {
+
+                            }
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+    }
+
 
     @Override
     protected void loadData() {
@@ -97,7 +165,7 @@ public class MainFragment extends BaseFragment implements MyScrollView.OnScrollL
     private void InitViewPager() {
         viewpager.setCurrentItem(0);
         MainPagerAdapter pagerAdapter = new MainPagerAdapter(
-                getChildFragmentManager(),"") {
+                getChildFragmentManager(), "") {
             //获取第position位置的Fragment
             @Override
             public Fragment getItem(int position) {

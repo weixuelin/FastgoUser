@@ -128,7 +128,8 @@ public abstract class ContentPage extends FrameLayout {
                 successView = createSuccessView();
                 addView(successView, params);
                 break;
-            case 2://加载失败的状态
+            case 2:
+                //加载失败的状态
 //                if (errorView == null) {
 //                    errorView = View.inflate(getContext(), R.layout.content_page_error, null);
 //                    Button btn_reload = (Button) errorView.findViewById(R.id.btn_reload);
@@ -145,6 +146,7 @@ public abstract class ContentPage extends FrameLayout {
 //                }
 //                removeAllViews();
 //                addView(errorView, params);
+
                 break;
         }
     }

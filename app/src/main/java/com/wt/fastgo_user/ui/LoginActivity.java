@@ -80,19 +80,24 @@ public class LoginActivity extends BaseActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.ui_login);
         ButterKnife.bind(this);
-        loginpPreferences = getSharedPreferences("userLogin",
-                Context.MODE_PRIVATE);
-        token = loginpPreferences.getString("token", "");
+        loginpPreferences = getSharedPreferences("userLogin", Context.MODE_PRIVATE);
+
+        token = loginpPreferences.getString("token", "1234");
+
         types = loginpPreferences.getString("type", "");
         str = loginpPreferences.getString("str", "");
         blockDialog = new BlockDialog(this);
+
         btnLoginLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 blockDialog.show();
+
                 account = editLoginAccount.getText().toString();
                 password = editLoginPassword.getText().toString();
+
                 message();
+
 //                EMClient.getInstance().login(editLoginAccount.getText().toString(), editLoginPassword.getText().toString(), new EMCallBack() {//回调
 //                    @Override
 //                    public void onSuccess() {
@@ -117,17 +122,22 @@ public class LoginActivity extends BaseActivity {
 
             }
         });
+
         if (!token.equals("")) {
+
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
+
         }
+
         textLoginRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 StartUtils.startActivityById(LoginActivity.this, view.getId());
             }
         });
+
         linearLoginType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

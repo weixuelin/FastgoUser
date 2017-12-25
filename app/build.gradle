@@ -6,7 +6,10 @@ android {
     aaptOptions{
         cruncherEnabled = false
         useNewCruncher = false
+
     }
+
+
     defaultConfig {
         applicationId "com.wt.fastgo_user"
         minSdkVersion 19
@@ -29,6 +32,7 @@ android {
     }
 
 }
+
 android {
     //use legacy for android 6.0
     useLibrary 'org.apache.http.legacy'
@@ -54,4 +58,5 @@ dependencies {
     compile 'com.jph.takephoto:takephoto_library:4.0.3'
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile 'com.android.support:design:27.0.2'
+    implementation 'com.google.code.gson:gson:2.2.4'
 }
