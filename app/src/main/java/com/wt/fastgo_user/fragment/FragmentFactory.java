@@ -245,10 +245,10 @@ public class FragmentFactory {
         Fragment fragment = null;
         switch (resId) {
             case 0:// 收件人
-                fragment = AddDirectmailFragment.newInstance(0);
+                fragment = AddDirectmailFragment.newInstance(1);
                 break;
             case 1:// 发件人
-                fragment = AddDirectmailFragment.newInstance(1);
+                fragment = AddDirectmailFragment.newInstance(2);
                 break;
         }
         return fragment;

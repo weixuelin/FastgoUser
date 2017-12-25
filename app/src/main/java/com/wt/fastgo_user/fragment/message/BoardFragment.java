@@ -90,6 +90,12 @@ public class BoardFragment extends BaseFragment {
         message();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadData();
+    }
+
     private void setListener() {
         //设置固定大小
         recyclerBoard.setHasFixedSize(true);
@@ -119,6 +125,7 @@ public class BoardFragment extends BaseFragment {
                 message();
             }
         });
+        refreshBtn.setOnClickListener(new BoardFragment());
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
@@ -135,12 +142,16 @@ public class BoardFragment extends BaseFragment {
                         message_like();
                     }
                     break;
+                case R.id.refresh_btn:
+                    blockDialog.show();
+                    message();
+                    break;
             }
         }
     };
 
     private void message_like() {
-        RequestCall call = SYApplication.genericClient()
+        RequestCall call = SYApplication.postFormBuilder()
                 .url(SYApplication.path_url + "/common/circle/like")
                 .addParams("id", id).build();
         call.execute(new StringCallback() {
@@ -153,7 +164,7 @@ public class BoardFragment extends BaseFragment {
             @Override
             public void onResponse(String response, int id) {
                 blockDialog.dismiss();
-                Log.i("toby", "onResponse: "+response);
+                Log.i("toby", "onResponse: " + response);
                 try {
                     final JSONObject jsonObject = new JSONObject(response);
                     boolean status = jsonObject.getBoolean("status");
@@ -176,7 +187,7 @@ public class BoardFragment extends BaseFragment {
     }
 
     private void message_cancel() {
-        RequestCall call = SYApplication.genericClient()
+        RequestCall call = SYApplication.postFormBuilder()
                 .url(SYApplication.path_url + "/common/circle/del_like")
                 .addParams("id", id).build();
         call.execute(new StringCallback() {
@@ -241,8 +252,8 @@ public class BoardFragment extends BaseFragment {
                     if (status) {
                         JSONObject jsonData = jsonObject.getJSONObject("data");
                         JSONArray list = jsonData.getJSONArray("list");
-                        if (list.length() == 0){
-                            if (pageNo == 1){
+                        if (list.length() == 0) {
+                            if (pageNo == 1) {
                                 refreshView.setVisibility(View.GONE);
                                 linearNoData.setVisibility(View.VISIBLE);
                             }

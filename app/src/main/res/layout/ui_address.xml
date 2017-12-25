@@ -34,7 +34,7 @@
                 android:layout_width="80dp"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="@string/home_have_been_sent"
+                android:text="@string/main_package"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_14" />
 
@@ -43,7 +43,7 @@
                 android:layout_width="80dp"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="@string/home_have_been_arrived"
+                android:text="@string/main_home"
                 android:textColor="@color/address_grey"
                 android:textSize="@dimen/text_size_14" />
 

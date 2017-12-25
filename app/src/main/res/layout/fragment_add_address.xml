@@ -94,6 +94,7 @@
                     android:textSize="@dimen/text_size_15" />
 
                 <TextView
+                    android:id="@+id/text_address_city"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/height_ten"
@@ -146,6 +147,7 @@
                     android:textSize="@dimen/text_size_15" />
 
                 <EditText
+                    android:id="@+id/edit_address_address"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/height_ten"
@@ -177,6 +179,7 @@
                     android:visibility="invisible" />
 
                 <EditText
+                    android:id="@+id/edit_address_zipcode"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/height_ten"
@@ -231,24 +234,29 @@
 
 
                 <ImageView
+                    android:id="@+id/image_address_zheng"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/height_ten"
                     android:layout_marginRight="@dimen/height_five"
                     android:layout_weight="1"
+                    android:scaleType="fitXY"
                     android:src="@drawable/card_zheng" />
 
                 <ImageView
+                    android:id="@+id/image_address_fan"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/height_five"
                     android:layout_marginRight="@dimen/height_ten"
                     android:layout_weight="1"
+                    android:scaleType="fitXY"
                     android:src="@drawable/card_fan" />
 
             </LinearLayout>
 
             <Button
+                android:id="@+id/btn_address_add"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_fourty"
                 android:layout_margin="@dimen/height_ten"
