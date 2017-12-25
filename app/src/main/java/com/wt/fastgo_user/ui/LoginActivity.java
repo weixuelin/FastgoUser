@@ -19,11 +19,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.tencent.mm.opensdk.modelbase.BaseResp;
+import com.tencent.mm.opensdk.modelmsg.SendAuth;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.applaction.SYApplication;
 import com.wt.fastgo_user.widgets.BlockDialog;
 import com.wt.fastgo_user.widgets.StartUtils;
 import com.wt.fastgo_user.widgets.ToastUtil;
+import com.wt.fastgo_user.wxapi.WXEntryActivity;
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zhy.http.okhttp.request.RequestCall;
 
@@ -39,6 +44,8 @@ import okhttp3.Call;
  */
 
 public class LoginActivity extends BaseActivity {
+    private static final java.lang.String WEIXIN_ID = "";
+
     @BindView(R.id.edit_login_account)
     EditText editLoginAccount;
     @BindView(R.id.edit_login_password)
@@ -59,6 +66,8 @@ public class LoginActivity extends BaseActivity {
     TextView textLoginType;
     @BindView(R.id.linear_login_type)
     LinearLayout linearLoginType;
+    @BindView(R.id.weixin_login)
+    ImageView weiXinLogin;
     private String account = "", password = "", types = "1";
     private BlockDialog blockDialog;
     private SharedPreferences loginpPreferences;
@@ -125,7 +134,15 @@ public class LoginActivity extends BaseActivity {
                 dialog_tip();
             }
         });
+
+        weiXinLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                weixinLogin();
+            }
+        });
     }
+
 
     private void message() {
         RequestCall call = SYApplication.postFormBuilder()
@@ -174,7 +191,7 @@ public class LoginActivity extends BaseActivity {
         LayoutInflater inflater_type = getLayoutInflater();
         View layout_type = inflater_type.inflate(R.layout.dialog_type, null);
         layout_type.setMinimumWidth(10000);
-        AlertDialog.Builder record_type = new AlertDialog.Builder(this,R.style.dialog);
+        AlertDialog.Builder record_type = new AlertDialog.Builder(this, R.style.dialog);
         dialog_tips = record_type.create();
         dialog_tips.show();
         dialog_tips.setContentView(layout_type);
@@ -221,4 +238,43 @@ public class LoginActivity extends BaseActivity {
             }
         });
     }
+
+
+    IWXAPI iwxapi;
+
+
+    private void weixinLogin() {
+        if (checkApkExist("com.tencent.mm")) {
+            iwxapi = WXAPIFactory.createWXAPI(getApplicationContext(), WEIXIN_ID, false);
+            iwxapi.registerApp(WEIXIN_ID);
+            // 绑定 登录回调信息
+            WXEntryActivity.setOnBackText(new WXEntryActivity.OnBackText() {
+                @Override
+                public void get(int code, String openId, String sex, String name, String icon) {
+                    if (code == 0) {
+                        if (!openId.equals("") && !sex.equals("") && !name.equals("")) {
+                            // 绑定登录的信息
+                        }
+                    } else if (code == BaseResp.ErrCode.ERR_USER_CANCEL) {
+                        showToastShort("用户取消微信登录");
+                    } else if (code == BaseResp.ErrCode.ERR_BAN) {
+
+                        showToastShort("微信授权失败，请使用其他方式登录");
+                    } else if (code == BaseResp.ErrCode.ERR_AUTH_DENIED) {
+
+                        showToastShort("用户拒绝登录，请重新登录");
+                    }
+                }
+            });
+
+            SendAuth.Req req = new SendAuth.Req();
+            req.scope = "snsapi_userinfo";
+            req.state = getPackageName();
+            iwxapi.sendReq(req);
+
+        } else {
+            showToastShort("请安装微信app");
+        }
+    }
+
 }

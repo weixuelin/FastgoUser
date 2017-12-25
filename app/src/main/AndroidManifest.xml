@@ -57,7 +57,8 @@
             android:configChanges="keyboard"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan" /> <!-->所有点击事件 </-->
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".activity.ChoosePackgetActivity" /> <!-->所有点击事件 </-->
         <!-- 设置环信应用的AppKey -->
         <meta-data
             android:name="EASEMOB_APPKEY"

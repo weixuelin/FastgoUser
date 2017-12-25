@@ -94,6 +94,7 @@ public class SYApplication extends Application {
         return builder;
     }
 
+
     public static GetBuilder genericClient() {
         GetBuilder builder = OkHttpUtils.get();
         builder.addHeader("token", token);
@@ -102,4 +103,5 @@ public class SYApplication extends Application {
         builder.addHeader("imei", imei);
         return builder;
     }
+
 }

@@ -197,6 +197,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/weixin_login"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:src="@drawable/login_weixin" />
