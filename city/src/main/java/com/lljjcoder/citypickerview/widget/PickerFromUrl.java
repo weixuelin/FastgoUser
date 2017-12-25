@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.lljjcoder.citypickerview.widget.wheel.OnWheelChangedListener;
 import com.lljjcoder.citypickerview.widget.wheel.WheelView;
 import com.lljjcoder.citypickerview.widget.wheel.adapters.ArrayWheelAdapter;
 
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -694,37 +696,40 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
             oneName = oneList.get(pCurrent).getText();
             oneId = oneList.get(pCurrent).getId();
 
-//            List<DbInfo> two = DataUtil.getInstance(context).getTwo(oneId, type);
             // 本地存在
+             if(!twoMap.isEmpty()) {
+                 List<DbInfo> two = DataUtil.getInstance(context).getTwo(oneId, type);
 
-            List<DbInfo> two = twoMap.get(oneId);
+                 twoMap.put(oneId,two);
+                 if (two != null && two.size() != 0) {
+                     updateCities(two);
 
-            if (two != null && two.size() != 0) {
+                 } else {
+                     myAsyncTask = new MyAsyncTask();
+                     myAsyncTask.execute(2, oneId);
 
-//                twoMap.put(oneId, two);
-
-                updateCities(two);
-
-            } else {
-                myAsyncTask = new MyAsyncTask();
-                myAsyncTask.execute(2, oneId);
-
-            }
+                 }
+             }
         }
     }
+
     @SuppressLint("StaticFieldLeak")
     public class MyAsyncTask extends AsyncTask<Integer, Void, Key> {
+
         int code;
+
         @Override
         protected Key doInBackground(Integer... str) {
             this.code = str[0];
             // 从网络获取
             Key key = null;
             if (code == 2) {
+                Log.i("wwwww","wwwwwddddd=="+getDataFromUrl);
                 key = getDataFromUrl.getFromUrlTwo(str[1]);
             } else if (code == 3) {
                 key = getDataFromUrl.getFromUrlThree(str[1], str[2]);
             }
+
             return key;
 
         }
@@ -748,6 +753,7 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
     private void setThree() {
         int pp = oneView.getCurrentItem();
         int oneId = oneList.get(pp).getId();
+
         List<DbInfo> tt = twoMap.get(oneId);
 
         int p = twoView.getCurrentItem();
@@ -809,6 +815,7 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
                     }
                 }
             }
+
             String[] areas = new String[len];
             for (int i = 0; i < len; i++) {
                 areas[i] = threeList.get(i).getText();

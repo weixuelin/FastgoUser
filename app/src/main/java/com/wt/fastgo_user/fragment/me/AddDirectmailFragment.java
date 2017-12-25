@@ -25,6 +25,7 @@ import com.jph.takephoto.app.TakePhotoFragment;
 import com.jph.takephoto.model.TImage;
 import com.jph.takephoto.model.TResult;
 import com.lljjcoder.citypickerview.model.DbInfo;
+import com.lljjcoder.citypickerview.utils.DataUtil;
 import com.lljjcoder.citypickerview.utils.Key;
 import com.lljjcoder.citypickerview.widget.PickerFromUrl;
 import com.wt.fastgo_user.R;
@@ -269,17 +270,74 @@ public class AddDirectmailFragment extends TakePhotoFragment {
         }
     }
 
+    private Key get(int one,int two,int code ){
+        Key key=new Key();
+        String id;
+        if(code==2){
+            id=String.valueOf(one);
+        }else {
+            id=String.valueOf(two);
+        }
+
+        Log.i("wwww","===="+id);
+
+        RequestCall call = SYApplication.genericClient()
+                .url(SYApplication.path_url + "/common/category/get_city")
+                .addParams("id",id )
+                .addParams("type", type).build();
+        try {
+            Response response =  call.execute();
+            if(response.isSuccessful()){
+                String str=response.body().string();
+
+                try {
+                    final JSONObject jsonObject = new JSONObject(str);
+                    boolean status = jsonObject.getBoolean("status");
+                    String msg = jsonObject.getString("msg");
+                    if (status) {
+                        JSONArray data = jsonObject.getJSONArray("data");
+                        List<DbInfo> list=new ArrayList<>();
+
+                        for (int i = 0; i < data.length(); i++) {
+                            DbInfo info = new DbInfo();
+                            info.setId(data.getJSONObject(i).getInt("id"));
+                            info.setText(data.getJSONObject(i).getString("value"));
+                            list.add(info);
+                        }
+
+                        key.setList(list);
+                        if(code==2){
+                            key.setType(1);
+                            key.setKey(one);
+                            DataUtil.getInstance(getActivity()).saveTwoData(key);
+                        }else if(code==3){
+                            key.setType(3);
+                            key.setKey(two);
+                            key.setOneId(one);
+                            DataUtil.getInstance(getActivity()).saveThree(key);
+                        }
+
+                    } else {
+                        ToastUtil.show(msg);
+                    }
+                } catch (JSONException e) {
+
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  key;
+    }
+
+
     private void message_city() {
         RequestCall call = SYApplication.genericClient()
                 .url(SYApplication.path_url + "/common/category/get_city")
                 .addParams("id", id_city)
                 .addParams("type", type).build();
-//        try {
-//            Response response =  call.execute();
-//            response.isSuccessful()
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+
         call.execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
@@ -303,8 +361,9 @@ public class AddDirectmailFragment extends TakePhotoFragment {
                             info.setId(data.getJSONObject(i).getInt("id"));
                             info.setText(data.getJSONObject(i).getString("value"));
                             list.add(info);
-                            selectAddress();
                         }
+
+                        selectAddress();
                     } else {
                         ToastUtil.show(msg);
                     }
@@ -329,22 +388,23 @@ public class AddDirectmailFragment extends TakePhotoFragment {
                 .itemPadding(10)
                 .onlyShowProvinceAndCity(false)
                 .build(1, list, map);
-        cityPicker.show();
+
         PickerFromUrl.setGetDataFromUrl(new PickerFromUrl.GetDataFromUrl() {
             @Override
             public Key getFromUrlTwo(int keyId) {
-                return null;
+                return get(keyId,0,2);
             }
 
             @Override
             public Key getFromUrlThree(int oneId, int twoId) {
-                return null;
+                return get(oneId,twoId,3);
             }
         });
+
         cityPicker.setOnCityItemClickListener(new PickerFromUrl.OnCityItemClickListener() {
             @Override
             public void onSelected(String... citySelected) {
-                textAddressCity.setText(map.get(0) + "-" + map.get(1) + "-" + map.get(2));
+                textAddressCity.setText(citySelected[0]+ "-" + citySelected[1]+ "-" + citySelected[2]);
             }
 
             @Override
@@ -357,7 +417,10 @@ public class AddDirectmailFragment extends TakePhotoFragment {
 
             }
         });
+
+        cityPicker.show();
     }
+
 
     @Override
     public void takeSuccess(TResult result) {
