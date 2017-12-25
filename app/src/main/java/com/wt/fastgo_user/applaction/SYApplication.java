@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Handler;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 
 import com.hyphenate.chat.EMClient;
@@ -44,31 +45,30 @@ public class SYApplication extends Application {
         application = this;
         sharedPreferences = getSharedPreferences("userLogin",
                 Context.MODE_PRIVATE);
-        token = sharedPreferences.getString("str", "");
+        token = sharedPreferences.getString("token", "");
         EMOptions options = new EMOptions();
         EMClient.getInstance().init(mContext, options);
         EMClient.getInstance().setDebugMode(true);
         EaseUI.getInstance().init(this, null);
         imei = getAndroidId(this);
+        setLanguage();
     }
 
     public static String getAndroidId(Context context) {
         return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
-    public static void setLanguage(String str) {
+    public static void setLanguage() {
         String strs = Locale.getDefault().getLanguage();
-        if (str.equals("")) {
-            str = strs;
-        }
-        Locale locale = new Locale(str);
+        Log.v("toby", "setLanguage: "+strs);
+        Locale locale = new Locale(strs);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;
         application.getBaseContext().getResources().updateConfiguration(config, null);
-        SharedPreferences.Editor editor_logo = sharedPreferences.edit();
-        editor_logo.putString("str", str);
-        editor_logo.commit();
+//        SharedPreferences.Editor editor_logo = sharedPreferences.edit();
+//        editor_logo.putString("str", strs);
+//        editor_logo.commit();
     }
 
     /**
