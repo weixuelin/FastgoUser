@@ -47,7 +47,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.itemView.setTag(position);
-        Glide_Image.load(mContext,mList.get(position),viewHolder.item_image);
+        Glide_Image.load(mContext, mList.get(position), viewHolder.item_image);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {

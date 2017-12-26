@@ -1,6 +1,7 @@
 package com.wt.fastgo_user.wxapi;
 
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
+=======
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+>>>>>>> weixuelin
 import android.widget.Toast;
 
 import com.tencent.mm.opensdk.modelbase.BaseReq;
@@ -19,10 +25,14 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.wt.fastgo_user.applaction.SYApplication;
+<<<<<<< HEAD
 import com.wt.fastgo_user.net.Contact;
 import com.wt.fastgo_user.ui.BaseActivity;
 import com.xiaomi.network.HttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
+=======
+import com.wt.fastgo_user.ui.BaseActivity;
+>>>>>>> weixuelin
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zhy.http.okhttp.request.RequestCall;
 
@@ -30,7 +40,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import okhttp3.Call;
+<<<<<<< HEAD
 import okhttp3.Response;
+=======
+>>>>>>> weixuelin
 
 /**
  * 微信登录相关回调

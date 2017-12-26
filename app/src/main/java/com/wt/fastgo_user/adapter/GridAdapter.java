@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.wt.fastgo_user.R;
+import com.wt.fastgo_user.widgets.CropCircleTransformation;
 import com.wt.fastgo_user.widgets.Glide_Image;
 
 import java.io.File;
@@ -91,7 +92,7 @@ public class GridAdapter extends BaseAdapter {
         } else {
 //            holder.item_grida_delete.setVisibility(View.VISIBLE);
             if (images.get(position).contains("http://")) {
-                Glide_Image.load(inflater.getContext(), images.get(position), holder.image);
+                Glide_Image.load(inflater.getContext(), images.get(position), holder.image,null);
 //                ImageDownloadUtils.DownloadImage();
             } else {
                 Glide.with(inflater.getContext()).load(new File(images.get(position))).into(holder.image);

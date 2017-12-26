@@ -1,21 +1,37 @@
 package com.wt.fastgo_user.fragment.me;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.wt.fastgo_user.R;
+import com.wt.fastgo_user.applaction.SYApplication;
 import com.wt.fastgo_user.fragment.BaseFragment;
+import com.wt.fastgo_user.ui.LoginActivity;
+import com.wt.fastgo_user.widgets.BlockDialog;
+import com.wt.fastgo_user.widgets.CircleImageView;
 import com.wt.fastgo_user.widgets.ConstantUtils;
+import com.wt.fastgo_user.widgets.CropCircleTransformation;
+import com.wt.fastgo_user.widgets.Glide_Image;
 import com.wt.fastgo_user.widgets.StartUtils;
+import com.wt.fastgo_user.widgets.ToastUtil;
+import com.zhy.http.okhttp.callback.StringCallback;
+import com.zhy.http.okhttp.request.RequestCall;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import okhttp3.Call;
 
 /**
  * Created by Administrator on 2017/10/10 0010.
@@ -42,6 +58,17 @@ public class MeFragment extends BaseFragment {
     RelativeLayout relativeMyFeedback;
     @BindView(R.id.relative_my_about)
     RelativeLayout relativeMyAbout;
+    @BindView(R.id.image_me_avatar)
+    ImageView imageMeAvatar;
+    @BindView(R.id.text_me_nickname)
+    TextView textMeNickname;
+    @BindView(R.id.text_me_balance)
+    TextView textMeBalance;
+    @BindView(R.id.text_me_count)
+    TextView textMeCount;
+    @BindView(R.id.text_me_integral)
+    TextView textMeIntegral;
+    private BlockDialog blockDialog;
 
     @Override
     protected View getSuccessView() {
@@ -58,9 +85,66 @@ public class MeFragment extends BaseFragment {
             return;
         }
         //填充各控件的数据
+        blockDialog.show();
+        message();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadData();
+    }
+
+    private void message() {
+        RequestCall call = SYApplication.genericClient()
+                .url(SYApplication.path_url + "/user/index/index").build();
+        call.execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                blockDialog.dismiss();
+                ToastUtil.show(e + "");
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                blockDialog.dismiss();
+                Log.d("toby", "onResponse: " + response);
+                try {
+                    final JSONObject jsonObject = new JSONObject(response);
+                    boolean status = jsonObject.getBoolean("status");
+                    String msg = jsonObject.getString("msg");
+                    int code = jsonObject.getInt("code");
+                    if (code == 501){
+                        SYApplication.loginOut();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                    if (status) {
+                        JSONObject jsonData = jsonObject.getJSONObject("data");
+                        String avatar = jsonData.getString("avatar");
+                        String nickname = jsonData.getString("nickname");
+                        String integral = jsonData.getString("integral");
+                        String moeny = jsonData.getString("moeny");
+                        String coupon_num = jsonData.getString("coupon_num");
+                        textMeBalance.setText(moeny);
+                        textMeIntegral.setText(integral);
+                        textMeCount.setText(coupon_num);
+                        textMeNickname.setText(nickname);
+                        Glide_Image.load(getActivity(), avatar, imageMeAvatar,new CropCircleTransformation(getActivity()));
+
+                    } else {
+                        ToastUtil.show(msg);
+                    }
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                }
+            }
+        });
     }
 
     private void setListener() {
+        blockDialog = new BlockDialog(getActivity());
         relativeMyStatistics.setOnClickListener(this);
         imageMeSetting.setOnClickListener(this);
         linearMeCoupon.setOnClickListener(this);

@@ -1,10 +1,27 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "F:\\program\\app\\fastgo\\clonefastgo\\FastgoUser\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
             "map": [
                 {
                     "source": "F:\\program\\app\\fastgo\\clonefastgo\\FastgoUser\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+=======
+            "outputFile": "E:\\AndroidStudioProjects\\FastgoUser\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\b3da4ac2cbbb5c96493c2a15fc098f15\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,126,197,267,337,405",
+                        "endColumns": "70,70,69,69,67,67",
+                        "endOffsets": "121,192,262,332,400,468"
+                    }
+                },
+                {
+                    "source": "E:\\AndroidStudioProjects\\FastgoUser\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+>>>>>>> weixuelin
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -19,6 +36,7 @@
                         "endColumns": "52,53",
                         "endOffsets": "521,575"
                     }
+<<<<<<< HEAD
                 },
                 {
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\1932318e1977b9db6b71cedd8f89d67b\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
@@ -29,6 +47,8 @@
                         "endColumns": "70,70,69,69,67,67",
                         "endOffsets": "121,192,262,332,400,468"
                     }
+=======
+>>>>>>> weixuelin
                 }
             ]
         }

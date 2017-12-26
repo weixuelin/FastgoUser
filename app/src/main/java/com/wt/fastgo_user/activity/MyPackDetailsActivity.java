@@ -12,7 +12,10 @@ import android.widget.TextView;
 
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.newadapter.ImageAdapter;
+<<<<<<< HEAD
 import com.wt.fastgo_user.net.Contact;
+=======
+>>>>>>> weixuelin
 
 import java.util.List;
 
@@ -109,8 +112,13 @@ public class MyPackDetailsActivity extends ProActivity {
     @Override
     public void initAllMembersView(Bundle bundle) {
         Intent intent = getIntent();
+<<<<<<< HEAD
         code = intent.getIntExtra(Contact.CODE, 0);
         packId = intent.getIntExtra(Contact.ID, 0);
+=======
+        code = intent.getIntExtra("code", 0);
+        packId = intent.getIntExtra("id", 0);
+>>>>>>> weixuelin
         if (code == 1) {
             faLinearLayout.setVisibility(View.GONE);
         } else {

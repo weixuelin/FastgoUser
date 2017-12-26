@@ -18,7 +18,10 @@ import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.newadapter.AdapterCallBack;
 import com.wt.fastgo_user.newadapter.ChooseAdapter;
 import com.wt.fastgo_user.info.OrderInfo;
+<<<<<<< HEAD
 import com.wt.fastgo_user.net.Contact;
+=======
+>>>>>>> weixuelin
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +71,11 @@ public class ChoosePackgetActivity extends ProActivity {
                 finish();
             }
         });
+<<<<<<< HEAD
         orderId = getIntent().getIntExtra(Contact.ID, 0);
+=======
+        orderId = getIntent().getIntExtra("id", 0);
+>>>>>>> weixuelin
 
         chooseRecycler.setLayoutManager(new LinearLayoutManager(this));
         initAdapter();

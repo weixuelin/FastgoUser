@@ -1,6 +1,7 @@
 package com.wt.fastgo_user.fragment.message;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -33,6 +34,7 @@ import com.wt.fastgo_user.adapter.GridAdapter;
 import com.wt.fastgo_user.applaction.SYApplication;
 import com.wt.fastgo_user.model.HomeModel;
 import com.wt.fastgo_user.ui.ClickButtonActivity;
+import com.wt.fastgo_user.ui.LoginActivity;
 import com.wt.fastgo_user.widgets.BitmapUtil;
 import com.wt.fastgo_user.widgets.BlockDialog;
 import com.wt.fastgo_user.widgets.MyGridview;
@@ -42,7 +44,6 @@ import com.zhy.http.okhttp.builder.PostFormBuilder;
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zhy.http.okhttp.request.RequestCall;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -167,6 +168,7 @@ public class AddBoardFragment extends TakePhotoFragment implements View.OnClickL
                     final JSONObject jsonObject = new JSONObject(response);
                     boolean status = jsonObject.getBoolean("status");
                     String msg = jsonObject.getString("msg");
+
                     if (status) {
                         ToastUtil.show(msg);
                         getActivity().finish();

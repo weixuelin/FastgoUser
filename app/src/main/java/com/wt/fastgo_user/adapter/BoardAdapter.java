@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.model.HomeModel;
+import com.wt.fastgo_user.widgets.CropCircleTransformation;
 import com.wt.fastgo_user.widgets.Glide_Image;
 import com.wt.fastgo_user.widgets.ToastUtil;
 
@@ -73,7 +74,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
             viewHolder.text_board_like.setTextColor(mContext.getResources().getColor(R.color.main_grey73));
             viewHolder.image_board_zan.setImageResource(R.drawable.board_zan);
         }
-        Glide_Image.load(mContext, mList.get(position).getAvatar(), viewHolder.image_board_head);
+        Glide_Image.load(mContext, mList.get(position).getAvatar(), viewHolder.image_board_head,new CropCircleTransformation(mContext));
         viewHolder.linear_board_like.setOnClickListener(clickListener);
         viewHolder.linear_board_like.setTag(position);
         viewHolder.recycler_board.setHasFixedSize(true);

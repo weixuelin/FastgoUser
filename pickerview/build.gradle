@@ -3,7 +3,11 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
+<<<<<<< HEAD
     buildToolsVersion "26.0.2"
+=======
+    buildToolsVersion '26.0.2'
+>>>>>>> weixuelin
 
     defaultConfig {
         minSdkVersion 19

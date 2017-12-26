@@ -20,8 +20,6 @@ import com.wt.fastgo_user.fragment.BaseFragment;
 import com.wt.fastgo_user.widgets.BlockDialog;
 import com.wt.fastgo_user.widgets.ConstantUtils;
 import com.wt.fastgo_user.widgets.ToastUtil;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.builder.PostFormBuilder;
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zhy.http.okhttp.request.RequestCall;
 

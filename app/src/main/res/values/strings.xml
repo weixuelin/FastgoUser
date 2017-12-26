@@ -376,8 +376,15 @@
     <string name="login_cancel"> 取消</string>
     <string name="login_common"> 普通用户</string>
     <string name="login_shop"> 网店用户</string>
+<<<<<<< HEAD
 
 
+=======
+    <string name="sure">确定</string>
+    <string name="prompt">提示</string>
+    <string name="prompt_delete">是否确认删除？</string>
+    <string name="prompt_default">是否设置为默认地址？</string>
+>>>>>>> weixuelin
 
     <string name="chooae_all">全部</string>
     <string name="choose_create">生成面单</string>
@@ -436,5 +443,8 @@
     <string name="liji_add">立即添加</string>
     <string name="add_user">添加用户</string>
     <string name="liji_save">保存</string>
+<<<<<<< HEAD
 
+=======
+>>>>>>> weixuelin
 </resources>

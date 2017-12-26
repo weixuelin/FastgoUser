@@ -5,12 +5,22 @@
     android:background="@color/all_bg"
     android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_address"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btn_address_add"
-        android:layout_marginBottom="@dimen/height_ten" />
+        android:layout_above="@+id/btn_directmail_add"
+        android:layout_marginBottom="@dimen/height_ten"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include layout="@layout/sublayout_no_internet" />
+
+        <include layout="@layout/sublayout_no_data" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_address_add"

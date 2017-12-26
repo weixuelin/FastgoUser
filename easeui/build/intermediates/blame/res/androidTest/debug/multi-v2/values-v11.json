@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "F:\\program\\app\\fastgo\\clonefastgo\\FastgoUser\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
                     "source": "F:\\program\\app\\fastgo\\clonefastgo\\FastgoUser\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-v11\\values-v11.xml",
+=======
+            "outputFile": "E:\\AndroidStudioProjects\\FastgoUser\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v11\\values-v11.xml",
+            "map": [
+                {
+                    "source": "E:\\AndroidStudioProjects\\FastgoUser\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-v11\\values-v11.xml",
+>>>>>>> weixuelin
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",
@@ -23,7 +30,11 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\1932318e1977b9db6b71cedd8f89d67b\\res\\values-v11\\values-v11.xml",
+=======
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\b3da4ac2cbbb5c96493c2a15fc098f15\\res\\values-v11\\values-v11.xml",
+>>>>>>> weixuelin
                     "from": {
                         "startLines": "2,8,14,20,26,32,38,39,40,41,46,51,56,58,60,61,62,115,169",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

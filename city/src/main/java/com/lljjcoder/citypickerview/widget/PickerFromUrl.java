@@ -2,8 +2,11 @@ package com.lljjcoder.citypickerview.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+<<<<<<< HEAD
 import android.content.res.AssetManager;
 import android.graphics.Color;
+=======
+>>>>>>> weixuelin
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
@@ -18,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lljjcoder.citypickerview.R;
+<<<<<<< HEAD
 import com.lljjcoder.citypickerview.model.CityModel;
 import com.lljjcoder.citypickerview.model.DbInfo;
 import com.lljjcoder.citypickerview.model.DistrictModel;
@@ -26,10 +30,16 @@ import com.lljjcoder.citypickerview.utils.DataUtil;
 import com.lljjcoder.citypickerview.utils.DbHelper;
 import com.lljjcoder.citypickerview.utils.Key;
 import com.lljjcoder.citypickerview.utils.XmlParserHandler;
+=======
+import com.lljjcoder.citypickerview.model.DbInfo;
+import com.lljjcoder.citypickerview.utils.DataUtil;
+import com.lljjcoder.citypickerview.utils.Key;
+>>>>>>> weixuelin
 import com.lljjcoder.citypickerview.widget.wheel.OnWheelChangedListener;
 import com.lljjcoder.citypickerview.widget.wheel.WheelView;
 import com.lljjcoder.citypickerview.widget.wheel.adapters.ArrayWheelAdapter;
 
+<<<<<<< HEAD
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +49,12 @@ import java.util.Set;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+=======
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+>>>>>>> weixuelin
 
 /**
  * 从网络上获取数据本存入本地数据库 先缓存后本地存储
@@ -109,8 +125,14 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
      */
     private String siName = "";
     private int siId = 0;
+<<<<<<< HEAD
 
     private OnCityItemClickListener listener;
+=======
+    private static Context contexts;
+
+    private static OnCityItemClickListener listener;
+>>>>>>> weixuelin
 
     public interface OnCityItemClickListener {
         void onSelected(String... citySelected);
@@ -188,7 +210,11 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
     /**
      * 标题背景颜色
      */
+<<<<<<< HEAD
     private int titleBackgroundColorStr = android.R.color.black;
+=======
+    private int titleBackgroundColorStr = android.R.color.white;
+>>>>>>> weixuelin
     /**
      * 标题颜色
      */
@@ -239,6 +265,10 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
         this.isDistrictCyclic = builder.isDistrictCyclic;
         this.isCityCyclic = builder.isCityCyclic;
         this.context = builder.mContext;
+<<<<<<< HEAD
+=======
+        this.contexts = builder.mContext;
+>>>>>>> weixuelin
         this.padding = builder.padding;
         this.mTitle = builder.mTitle;
         this.titleBackgroundColorStr = builder.titleBackgroundColorStr;
@@ -639,7 +669,10 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
             PickerFromUrl cityPicker = new PickerFromUrl(this, type, list, map);
             return cityPicker;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> weixuelin
     }
 
     public int indexType = 0;
@@ -707,6 +740,7 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
             oneName = oneList.get(pCurrent).getText();
             oneId = oneList.get(pCurrent).getId();
 
+<<<<<<< HEAD
 //            List<DbInfo> two = DataUtil.getInstance(context).getTwo(oneId, type);
             // 本地存在
 
@@ -722,11 +756,29 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
                 myAsyncTask = new MyAsyncTask();
                 myAsyncTask.execute(2, oneId);
 
+=======
+            // 本地存在
+            if(!twoMap.isEmpty()) {
+                List<DbInfo> two = DataUtil.getInstance(context).getTwo(oneId, type);
+
+                twoMap.put(oneId,two);
+                if (two != null && two.size() != 0) {
+                    updateCities(two);
+
+                } else {
+                    myAsyncTask = new MyAsyncTask();
+                    myAsyncTask.execute(2, oneId);
+
+                }
+>>>>>>> weixuelin
             }
         }
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> weixuelin
     @SuppressLint("StaticFieldLeak")
     public class MyAsyncTask extends AsyncTask<Integer, Void, Key> {
 
@@ -738,6 +790,10 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
             // 从网络获取
             Key key = null;
             if (code == 2) {
+<<<<<<< HEAD
+=======
+                Log.i("wwwww","wwwwwddddd=="+getDataFromUrl);
+>>>>>>> weixuelin
                 key = getDataFromUrl.getFromUrlTwo(str[1]);
             } else if (code == 3) {
                 key = getDataFromUrl.getFromUrlThree(str[1], str[2]);
@@ -752,6 +808,7 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
             super.onPostExecute(key);
             List<DbInfo> list = key.getList();
             if (code == 2) {
+<<<<<<< HEAD
 
 //                DataUtil.getInstance(context).saveTwoData(key);
 
@@ -762,6 +819,12 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
                 //从网络获取
 //                DataUtil.getInstance(context).saveThree(key);
 
+=======
+                twoMap.put(key.getKey(), list);
+                updateCities(list);
+            } else if (code == 3) {
+                //从网络获取
+>>>>>>> weixuelin
                 threeMap.put(key.getKey(), list);
                 updateAreas(list);
             }
@@ -772,6 +835,10 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
     private void setThree() {
         int pp = oneView.getCurrentItem();
         int oneId = oneList.get(pp).getId();
+<<<<<<< HEAD
+=======
+
+>>>>>>> weixuelin
         List<DbInfo> tt = twoMap.get(oneId);
 
         int p = twoView.getCurrentItem();
@@ -833,12 +900,20 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
                     }
                 }
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> weixuelin
             String[] areas = new String[len];
             for (int i = 0; i < len; i++) {
                 areas[i] = threeList.get(i).getText();
             }
 
+<<<<<<< HEAD
             districtWheel = new ArrayWheelAdapter<String>(context, areas);
+=======
+            districtWheel = new ArrayWheelAdapter<>(context, areas);
+>>>>>>> weixuelin
             // 设置可见条目数量
             districtWheel.setTextColor(textColor);
             districtWheel.setTextSize(textSize);

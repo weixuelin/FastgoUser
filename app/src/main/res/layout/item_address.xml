@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/height_ten"
             android:layout_marginTop="@dimen/height_ten"
+            android:baselineAligned="false"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -28,6 +29,7 @@
                 android:textSize="@dimen/text_size_15" />
 
             <TextView
+                android:id="@+id/text_address_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="杨硕"
@@ -35,6 +37,7 @@
                 android:textSize="@dimen/text_size_15" />
 
             <TextView
+                android:id="@+id/text_address_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/height_ten"
@@ -59,6 +62,7 @@
                 android:textSize="@dimen/text_size_13" />
 
             <TextView
+                android:id="@+id/text_address_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="重庆市南岸区南坪街道"
@@ -106,6 +110,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linear_address_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toLeftOf="@+id/linear_address_delete"

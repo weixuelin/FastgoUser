@@ -35,6 +35,7 @@
         android:padding="@dimen/height_ten">
 
         <EditText
+            android:id="@+id/edit_goods_name"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_fourty"
             android:layout_centerVertical="true"
@@ -46,12 +47,14 @@
             android:textSize="@dimen/text_size_13" />
 
         <RelativeLayout
+            android:id="@+id/relative_goods_type"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_fourty"
             android:layout_marginTop="@dimen/height_five"
             android:background="@drawable/btn_feedback">
 
             <TextView
+                android:id="@+id/text_goods_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -85,6 +88,7 @@
         </RelativeLayout>
 
         <EditText
+            android:id="@+id/edit_goods_brand"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_fourty"
             android:layout_centerVertical="true"
@@ -97,6 +101,7 @@
             android:textSize="@dimen/text_size_13" />
 
         <EditText
+            android:id="@+id/edit_goods_spec"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_fourty"
             android:layout_centerVertical="true"
@@ -109,6 +114,7 @@
             android:textSize="@dimen/text_size_13" />
 
         <EditText
+            android:id="@+id/edit_goods_num"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_fourty"
             android:layout_centerVertical="true"
@@ -121,6 +127,7 @@
             android:textSize="@dimen/text_size_13" />
 
         <EditText
+            android:id="@+id/edit_goods_price"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_fourty"
             android:layout_centerVertical="true"
@@ -133,6 +140,7 @@
             android:textSize="@dimen/text_size_13" />
 
         <EditText
+            android:id="@+id/edit_goods_total"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_fourty"
             android:layout_centerVertical="true"

@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "F:\\program\\app\\fastgo\\clonefastgo\\FastgoUser\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
             "map": [
                 {
                     "source": "F:\\program\\app\\fastgo\\clonefastgo\\FastgoUser\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-w820dp-v13\\values-w820dp-v13.xml",
+=======
+            "outputFile": "E:\\AndroidStudioProjects\\FastgoUser\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+            "map": [
+                {
+                    "source": "E:\\AndroidStudioProjects\\FastgoUser\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-w820dp-v13\\values-w820dp-v13.xml",
+>>>>>>> weixuelin
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

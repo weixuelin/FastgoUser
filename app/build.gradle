@@ -55,8 +55,14 @@ dependencies {
     compile project(':pickerview')
     compile 'com.zhy:okhttputils:+'
     compile project(':pullrefresh_lib')
+    compile project(':city')
     compile 'com.jph.takephoto:takephoto_library:4.0.3'
+<<<<<<< HEAD
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile 'com.android.support:design:27.0.2'
     implementation 'com.google.code.gson:gson:2.2.4'
+=======
+    implementation 'com.android.support:design:27.0.2'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+>>>>>>> weixuelin
 }

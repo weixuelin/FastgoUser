@@ -15,7 +15,10 @@ import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.activity.ChoosePackgetActivity;
 
 import com.wt.fastgo_user.info.OrderInfo;
+<<<<<<< HEAD
 import com.wt.fastgo_user.net.Contact;
+=======
+>>>>>>> weixuelin
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +29,11 @@ import butterknife.ButterKnife;
 
 
 public class WaitAdapter extends OnBindRecyclerAdapter<OrderInfo> {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> weixuelin
     private List<String> imageList;
     private OnLoadData onLoadData;
 
@@ -48,7 +54,11 @@ public class WaitAdapter extends OnBindRecyclerAdapter<OrderInfo> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ChoosePackgetActivity.class);
+<<<<<<< HEAD
                 intent.putExtra(Contact.ID, orderInfo.getId());
+=======
+                intent.putExtra("id", orderInfo.getId());
+>>>>>>> weixuelin
                 context.startActivity(intent);
             }
         });
@@ -78,8 +88,13 @@ public class WaitAdapter extends OnBindRecyclerAdapter<OrderInfo> {
         Set<String> keySet = bundle.keySet();
         for (String t : keySet) {
             switch (t) {
+<<<<<<< HEAD
                 case Contact.NAME:
                     OrderInfo orderInfo = bundle.getParcelable(Contact.NAME);
+=======
+                case "name":
+                    OrderInfo orderInfo = bundle.getParcelable("name");
+>>>>>>> weixuelin
                     showTwo((ViewHolder) holder, orderInfo);
                     break;
             }
@@ -105,9 +120,15 @@ public class WaitAdapter extends OnBindRecyclerAdapter<OrderInfo> {
         } else {
             holder.twoLinear.setVisibility(View.GONE);
         }
+<<<<<<< HEAD
 
     }
 
+=======
+    }
+
+
+>>>>>>> weixuelin
     @Override
     protected RecyclerView.ViewHolder createRecyclerViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.wait_store_item, parent, false);
@@ -126,7 +147,12 @@ public class WaitAdapter extends OnBindRecyclerAdapter<OrderInfo> {
         void onLoad(int p);
     }
 
+<<<<<<< HEAD
     static class ViewHolder extends RecyclerView.ViewHolder {
+=======
+
+     static class ViewHolder extends RecyclerView.ViewHolder {
+>>>>>>> weixuelin
         @BindView(R.id.wait_name)
         TextView waitName;
         @BindView(R.id.wait_km)

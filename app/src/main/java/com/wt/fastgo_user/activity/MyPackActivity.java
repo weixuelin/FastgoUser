@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.wt.fastgo_user.R;
+<<<<<<< HEAD
 
 import com.wt.fastgo_user.info.WuInfo;
 import com.wt.fastgo_user.net.Contact;
@@ -18,6 +19,12 @@ import com.wt.fastgo_user.newadapter.MyPackAdapter;
 import com.wt.fastgo_user.newadapter.OnBindRecyclerAdapter;
 
 
+=======
+import com.wt.fastgo_user.info.WuInfo;
+import com.wt.fastgo_user.newadapter.MyPackAdapter;
+import com.wt.fastgo_user.newadapter.OnBindRecyclerAdapter;
+
+>>>>>>> weixuelin
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,7 +106,11 @@ public class MyPackActivity extends ProActivity {
             public void onEdit(int p) {
                 // 点击编辑
                 Intent intent = new Intent(MyPackActivity.this, EditActivity.class);
+<<<<<<< HEAD
                 intent.putExtra(Contact.NAME, list.get(p));
+=======
+                intent.putExtra("name", list.get(p));
+>>>>>>> weixuelin
                 startActivity(intent);
 
 
@@ -120,8 +131,13 @@ public class MyPackActivity extends ProActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(MyPackActivity.this, MyPackDetailsActivity.class);
+<<<<<<< HEAD
                 intent.putExtra(Contact.CODE, 1);
                 intent.putExtra(Contact.ID, list.get(position).getId());
+=======
+                intent.putExtra("code", 1);
+                intent.putExtra("id", list.get(position).getId());
+>>>>>>> weixuelin
                 startActivity(intent);
 
             }

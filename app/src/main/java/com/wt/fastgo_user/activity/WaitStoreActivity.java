@@ -12,7 +12,10 @@ import android.widget.TextView;
 
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.info.OrderInfo;
+<<<<<<< HEAD
 import com.wt.fastgo_user.net.Contact;
+=======
+>>>>>>> weixuelin
 import com.wt.fastgo_user.newadapter.AdapterCallBack;
 import com.wt.fastgo_user.newadapter.WaitAdapter;
 
@@ -59,6 +62,10 @@ public class WaitStoreActivity extends ProActivity {
     @Override
     public void handler(Message msg) {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> weixuelin
     }
 
 
@@ -73,16 +80,45 @@ public class WaitStoreActivity extends ProActivity {
         adapter = new WaitAdapter(this, list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+<<<<<<< HEAD
+=======
+
+>>>>>>> weixuelin
         adapter.setOnLoadData(new WaitAdapter.OnLoadData() {
             @Override
             public void onLoad(int p) {
                 // 显示详细信息
+<<<<<<< HEAD
                 showDataDetails(p);
+=======
+                getDetailsFromUrl(p, list.get(p));
+>>>>>>> weixuelin
             }
         });
 
     }
 
+<<<<<<< HEAD
+=======
+    private void getDetailsFromUrl(int p, OrderInfo orderInfo) {
+
+//        SYApplication.postFormBuilder().url(SYApplication.path_url+"").addParams("id",String.valueOf(orderInfo.getId())).build().buildCall(new StringCallback() {
+//            @Override
+//            public void onError(Call call, Exception e, int id) {
+//
+//            }
+//
+//            @Override
+//            public void onResponse(String response, int id) {
+//
+//            }
+//        });
+
+        showDataDetails(p);
+
+    }
+
+>>>>>>> weixuelin
 
     private void showDataDetails(int p) {
         int len = morelist.size();
@@ -110,7 +146,11 @@ public class WaitStoreActivity extends ProActivity {
             public Object getChangePayload(int oldItemPosition, int newItemPosition) {
                 Bundle bundle = new Bundle();
                 OrderInfo info = morelist.get(newItemPosition);
+<<<<<<< HEAD
                 bundle.putParcelable(Contact.NAME, info);
+=======
+                bundle.putParcelable("name", info);
+>>>>>>> weixuelin
                 return bundle;
             }
         });
@@ -143,6 +183,10 @@ public class WaitStoreActivity extends ProActivity {
 
     private void search(String str) {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> weixuelin
     }
 
 }

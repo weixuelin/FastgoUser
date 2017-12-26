@@ -5,7 +5,10 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="lighter_gray">#ddd</color>
+<<<<<<< HEAD
     <color name="red">#Fe4646</color>
+=======
+>>>>>>> weixuelin
 
     <color name="white">#ffffff</color>
     <color name="main_red">#ff4546</color>

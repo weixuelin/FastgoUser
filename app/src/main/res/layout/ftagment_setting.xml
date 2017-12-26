@@ -69,7 +69,8 @@
                 android:textColor="@color/main_black"
                 android:textSize="@dimen/text_size_13" />
 
-            <com.wt.fastgo_user.widgets.CircleImageView
+            <ImageView
+                android:id="@+id/image_setting_head"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
@@ -106,6 +107,7 @@
                 android:textSize="@dimen/text_size_13" />
 
             <EditText
+                android:id="@+id/edit_setting_nickname"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -148,6 +150,7 @@
                 android:textSize="@dimen/text_size_13" />
 
             <TextView
+                android:id="@+id/text_setting_sex"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -177,6 +180,7 @@
             android:background="@color/line" />
 
         <RelativeLayout
+            android:id="@+id/relative_setting_country"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_fifty">
 
@@ -190,6 +194,7 @@
                 android:textSize="@dimen/text_size_13" />
 
             <TextView
+                android:id="@+id/text_setting_country"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -232,6 +237,7 @@
                 android:textSize="@dimen/text_size_13" />
 
             <EditText
+                android:id="@+id/edit_setting_address"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
