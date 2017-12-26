@@ -1,5 +1,6 @@
 package com.wt.fastgo_user.fragment.me;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.applaction.SYApplication;
 import com.wt.fastgo_user.fragment.BaseFragment;
+import com.wt.fastgo_user.ui.LoginActivity;
 import com.wt.fastgo_user.widgets.BlockDialog;
 import com.wt.fastgo_user.widgets.CircleImageView;
 import com.wt.fastgo_user.widgets.ConstantUtils;
@@ -111,6 +113,13 @@ public class MeFragment extends BaseFragment {
                     final JSONObject jsonObject = new JSONObject(response);
                     boolean status = jsonObject.getBoolean("status");
                     String msg = jsonObject.getString("msg");
+                    int code = jsonObject.getInt("code");
+                    if (code == 501){
+                        SYApplication.loginOut();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
                     if (status) {
                         JSONObject jsonData = jsonObject.getJSONObject("data");
                         String avatar = jsonData.getString("avatar");

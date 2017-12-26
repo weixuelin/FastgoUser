@@ -2,31 +2,52 @@ package com.wt.fastgo_user.fragment.packages;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.wt.fastgo_user.R;
+import com.wt.fastgo_user.adapter.PopBuyAdapter;
 import com.wt.fastgo_user.adapter.WarehouseAdapter;
+import com.wt.fastgo_user.applaction.SYApplication;
 import com.wt.fastgo_user.fragment.BaseFragment;
+import com.wt.fastgo_user.fragment.me.AddInternationalFragment;
 import com.wt.fastgo_user.model.HomeModel;
 import com.wt.fastgo_user.ui.ClickButtonActivity;
+import com.wt.fastgo_user.ui.LoginActivity;
+import com.wt.fastgo_user.widgets.BlockDialog;
 import com.wt.fastgo_user.widgets.ConstantUtils;
 import com.wt.fastgo_user.widgets.StartUtils;
+import com.wt.fastgo_user.widgets.ToastUtil;
+import com.zhy.http.okhttp.callback.StringCallback;
+import com.zhy.http.okhttp.request.RequestCall;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import okhttp3.Call;
 
 /**
  * Created by Administrator on 2017/12/21 0021.
@@ -41,12 +62,17 @@ public class WarehouseFragment extends BaseFragment {
     RecyclerView recyclerTransfer;
     private ArrayList<HomeModel> arrayList;
     private WarehouseAdapter adapter;
-    private Dialog dialog_tips,dialog_success;
+    private Dialog dialog_tips, dialog_success;
+    private BlockDialog blockDialog;
+    PopupWindow popupWindow = null;
+    private RelativeLayout relative_goods_type;
+    private TextView text_goods_type;
 
     @Override
     protected View getSuccessView() {
         View view = View.inflate(getActivity(), R.layout.fragment_house, null);
         ButterKnife.bind(this, view);
+        blockDialog = new BlockDialog(getActivity());
         initView();
         isPrepared = true;
         return view;
@@ -63,7 +89,7 @@ public class WarehouseFragment extends BaseFragment {
     @Override
     protected void setActionBar() {
         ClickButtonActivity activity = (ClickButtonActivity) getActivity();
-        activity.textTop.setText(R.string.package_warehouse);
+        activity.relativeTop.setVisibility(View.GONE);
     }
 
     @Override
@@ -113,6 +139,23 @@ public class WarehouseFragment extends BaseFragment {
                 .findViewById(R.id.btn_add_sure);//
         ImageView image_dialog_close = layout_type
                 .findViewById(R.id.image_dialog_close);//
+        final EditText edit_goods_name = layout_type
+                .findViewById(R.id.edit_goods_name);//
+        text_goods_type = layout_type
+                .findViewById(R.id.text_goods_type);//
+        relative_goods_type = layout_type
+                .findViewById(R.id.relative_goods_type);//
+        final EditText edit_goods_brand = layout_type
+                .findViewById(R.id.edit_goods_brand);//
+        final EditText edit_goods_spec = layout_type
+                .findViewById(R.id.edit_goods_spec);//
+        final EditText edit_goods_num = layout_type
+                .findViewById(R.id.edit_goods_num);//
+        final EditText edit_goods_price = layout_type
+                .findViewById(R.id.edit_goods_price);//
+        EditText edit_goods_total = layout_type
+                .findViewById(R.id.edit_goods_total);//
+        edit_goods_total.setVisibility(View.GONE);
         dialog_tips.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         image_dialog_close.setOnClickListener(new View.OnClickListener() {
 
@@ -128,10 +171,148 @@ public class WarehouseFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                dialog_success();
+                blockDialog.show();
+                message_success(edit_goods_name.getText().toString(),
+                        text_goods_type.getText().toString(),
+                        edit_goods_brand.getText().toString(),
+                        edit_goods_spec.getText().toString(),
+                        edit_goods_num.getText().toString(),
+                        edit_goods_price.getText().toString());
                 dialog_tips.dismiss();
             }
         });
+        relative_goods_type.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                blockDialog.show();
+                message_type();
+            }
+        });
+    }
+
+    private void message_success(String name, String category, String brand
+            , String spec, String num, String price) {
+        RequestCall call = SYApplication.postFormBuilder()
+                .url(SYApplication.path_url + "/user/warehouse/edit")
+                .addParams("name", name)
+                .addParams("category", category)
+                .addParams("brand", brand)
+                .addParams("spec", spec)
+                .addParams("price", price)
+                .addParams("num", num).build();
+
+        call.execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                blockDialog.dismiss();
+                ToastUtil.show(e + "");
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                blockDialog.dismiss();
+                Log.d("toby", "onResponse: " + response);
+                try {
+                    final JSONObject jsonObject = new JSONObject(response);
+                    boolean status = jsonObject.getBoolean("status");
+                    String msg = jsonObject.getString("msg");
+                    if (status) {
+                        dialog_success();
+                    } else {
+                        ToastUtil.show(msg);
+                    }
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                }
+            }
+        });
+    }
+
+    private void message_type() {
+        RequestCall call = SYApplication.genericClient()
+                .url(SYApplication.path_url + "/common/category/get_list")
+                .addParams("id", "587").build();
+
+        call.execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                blockDialog.dismiss();
+                ToastUtil.show(e + "");
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                blockDialog.dismiss();
+                Log.d("toby", "onResponse: " + response);
+                try {
+                    final JSONObject jsonObject = new JSONObject(response);
+                    boolean status = jsonObject.getBoolean("status");
+                    String msg = jsonObject.getString("msg");
+                    if (status) {
+                        String data = jsonObject.getString("data");
+                        popwindow(data);
+                    } else {
+                        ToastUtil.show(msg);
+                    }
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                }
+            }
+        });
+    }
+
+    private void popwindow(String restles) {
+        View popview = LayoutInflater.from(getActivity()).inflate(
+                R.layout.dialog_list, null);
+        popupWindow = new PopupWindow(popview, DrawerLayout.LayoutParams.MATCH_PARENT,
+                DrawerLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        RecyclerView recycle_city = popview
+                .findViewById(R.id.recycle_city);
+        final ArrayList<HomeModel> modelArrayList;
+        PopBuyAdapter adapter;
+        LinearLayoutManager linearLayoutManager;
+        modelArrayList = new ArrayList<>();
+        adapter = new PopBuyAdapter(getActivity(), modelArrayList);
+        //设置固定大小
+        recycle_city.setHasFixedSize(true);
+        //创建线性布局
+        linearLayoutManager = new LinearLayoutManager(getActivity());
+        //垂直方向
+        linearLayoutManager.setOrientation(OrientationHelper.VERTICAL);
+        //给RecyclerView设置布局管理器
+        recycle_city.setLayoutManager(linearLayoutManager);
+        recycle_city.setAdapter(adapter);
+        try {
+            JSONArray jsonData = new JSONArray(restles);
+            for (int i = 0; i < jsonData.length(); i++) {
+                HomeModel homeModel = new HomeModel();
+                String id = jsonData.getJSONObject(i).getString("id");
+                String value = jsonData.getJSONObject(i).getString("value");
+                homeModel.setId(id);
+                homeModel.setName(value);
+                modelArrayList.add(homeModel);
+                adapter.notifyDataSetChanged();
+            }
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+//                                e.printStackTrace();
+        }
+        adapter.setOnItemClickListener(new PopBuyAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                popupWindow.dismiss();
+                text_goods_type.setText(modelArrayList.get(position).getName());
+            }
+        });
+        if (popupWindow.isShowing()) {
+            popupWindow.dismiss();
+        } else {
+            popupWindow.showAtLocation(relative_goods_type, Gravity.CENTER, 0, 0);
+//            popupWindow.showAsDropDown(textAddCountry);
+        }
     }
 
     private void dialog_success() {

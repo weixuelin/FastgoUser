@@ -15,6 +15,12 @@ public class StartUtils {
         intent.putExtra("resId",resId);
         context.startActivity(intent);
     }
+    public static void startActivityByIds(Context context, int resId,String id){
+        Intent intent = new Intent(context, ClickButtonActivity.class);
+        intent.putExtra("resId",resId);
+        intent.putExtra("id",id);
+        context.startActivity(intent);
+    }
 //    public static void startActivityByIdForResult(Fragment activity, int resId , int requestCode){
 //        Intent intent = new Intent(activity, ClickButtonActivity.class);
 //        intent.putExtra("resId",resId);

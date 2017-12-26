@@ -3,6 +3,7 @@ package com.wt.fastgo_user.applaction;
 import android.app.Application;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Handler;
@@ -13,6 +14,8 @@ import android.view.View;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.EaseUI;
+import com.wt.fastgo_user.ui.LoginActivity;
+import com.wt.fastgo_user.widgets.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.builder.GetBuilder;
 import com.zhy.http.okhttp.builder.PostFormBuilder;
@@ -40,6 +43,7 @@ public class SYApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.i("toby", "onCreate: "+"sssssss");
         mContext = this;
         mHandler = new Handler();
         application = this;
@@ -52,15 +56,23 @@ public class SYApplication extends Application {
         EaseUI.getInstance().init(this, null);
         imei = getAndroidId(this);
         setLanguage();
-    }
 
+    }
+    public static void loginOut() {
+        SharedPreferences.Editor editor_logo = sharedPreferences.edit();
+        editor_logo.putString("token", "");
+        editor_logo.putString("time_out", "");
+        editor_logo.putString("types", "");
+        editor_logo.putString("type", "");
+        editor_logo.commit();
+
+    }
     public static String getAndroidId(Context context) {
         return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
     public static void setLanguage() {
         String strs = Locale.getDefault().getLanguage();
-        Log.v("toby", "setLanguage: "+strs);
         Locale locale = new Locale(strs);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
@@ -70,6 +82,7 @@ public class SYApplication extends Application {
 //        editor_logo.putString("str", strs);
 //        editor_logo.commit();
     }
+
 
     /**
      * 获取全局的context

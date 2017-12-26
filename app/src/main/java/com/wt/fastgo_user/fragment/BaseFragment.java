@@ -10,12 +10,9 @@ import android.view.ViewGroup;
 import com.wt.fastgo_user.widgets.BackHandledInterface;
 import com.wt.fastgo_user.widgets.CommonUtils;
 import com.wt.fastgo_user.widgets.ContentPage;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.builder.PostFormBuilder;
 
 import java.util.ArrayList;
 
-import okhttp3.OkHttpClient;
 import rx.Subscriber;
 
 

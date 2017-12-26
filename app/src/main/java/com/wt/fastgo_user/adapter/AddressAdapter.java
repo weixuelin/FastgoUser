@@ -23,15 +23,17 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
     private Context mContext;
     private ArrayList<HomeModel> mList;
     private OnItemClickListener mOnItemClickListener = null;
+    private View.OnClickListener onClickListener;
 
     //define interface
     public static interface OnItemClickListener {
         void onItemClick(View view, int position);
     }
 
-    public AddressAdapter(Context mContext, ArrayList<HomeModel> mList) {
+    public AddressAdapter(Context mContext, ArrayList<HomeModel> mList, View.OnClickListener onClickListener) {
         this.mContext = mContext;
         this.mList = mList;
+        this.onClickListener = onClickListener;
     }
 
     //创建新View，被LayoutManager所调用
@@ -47,13 +49,22 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.itemView.setTag(position);
-        if (position == 1) {
+        viewHolder.text_address_address.setText(mList.get(position).getAddress());
+        viewHolder.text_address_name.setText(mList.get(position).getName());
+        viewHolder.text_address_phone.setText(mList.get(position).getMobile());
+        if (mList.get(position).getContent().equals("1")) {
             viewHolder.image_address_default.setImageResource(R.drawable.address_default);
             viewHolder.text_address_default.setTextColor(mContext.getResources().getColor(R.color.main_red));
         } else {
             viewHolder.image_address_default.setImageResource(R.drawable.address_notdefault);
             viewHolder.text_address_default.setTextColor(mContext.getResources().getColor(R.color.main_grey6));
         }
+        viewHolder.linear_address_default.setOnClickListener(onClickListener);
+        viewHolder.linear_address_default.setTag(position);
+        viewHolder.linear_address_delete.setOnClickListener(onClickListener);
+        viewHolder.linear_address_delete.setTag(position);
+        viewHolder.linear_address_edit.setOnClickListener(onClickListener);
+        viewHolder.linear_address_edit.setTag(position);
 
     }
 
@@ -72,9 +83,19 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
         LinearLayout linear_address_default;
         ImageView image_address_default;
         TextView text_address_default;
+        LinearLayout linear_address_edit;
+        LinearLayout linear_address_delete;
+        TextView text_address_phone;
+        TextView text_address_name;
+        TextView text_address_address;
 
         public ViewHolder(View view) {
             super(view);
+            text_address_address = view.findViewById(R.id.text_address_address);
+            text_address_name = view.findViewById(R.id.text_address_name);
+            text_address_phone = view.findViewById(R.id.text_address_phone);
+            linear_address_edit = view.findViewById(R.id.linear_address_edit);
+            linear_address_delete = view.findViewById(R.id.linear_address_delete);
             linear_address_default = view.findViewById(R.id.linear_address_default);
             image_address_default = view.findViewById(R.id.image_address_default);
             text_address_default = view.findViewById(R.id.text_address_default);

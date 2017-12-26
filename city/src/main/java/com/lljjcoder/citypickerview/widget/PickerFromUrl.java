@@ -697,19 +697,19 @@ public class PickerFromUrl implements CanShow, OnWheelChangedListener {
             oneId = oneList.get(pCurrent).getId();
 
             // 本地存在
-             if(!twoMap.isEmpty()) {
-                 List<DbInfo> two = DataUtil.getInstance(context).getTwo(oneId, type);
+            if(!twoMap.isEmpty()) {
+                List<DbInfo> two = DataUtil.getInstance(context).getTwo(oneId, type);
 
-                 twoMap.put(oneId,two);
-                 if (two != null && two.size() != 0) {
-                     updateCities(two);
+                twoMap.put(oneId,two);
+                if (two != null && two.size() != 0) {
+                    updateCities(two);
 
-                 } else {
-                     myAsyncTask = new MyAsyncTask();
-                     myAsyncTask.execute(2, oneId);
+                } else {
+                    myAsyncTask = new MyAsyncTask();
+                    myAsyncTask.execute(2, oneId);
 
-                 }
-             }
+                }
+            }
         }
     }
 

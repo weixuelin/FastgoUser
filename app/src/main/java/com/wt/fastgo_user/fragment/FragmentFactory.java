@@ -26,10 +26,12 @@ import com.wt.fastgo_user.fragment.me.AddressFragment;
 import com.wt.fastgo_user.fragment.me.BalanceDetailFragment;
 import com.wt.fastgo_user.fragment.me.BalanceFragment;
 import com.wt.fastgo_user.fragment.me.CouponFragment;
+import com.wt.fastgo_user.fragment.me.DirectmailFragment;
 import com.wt.fastgo_user.fragment.me.FeedbackFragment;
 import com.wt.fastgo_user.fragment.me.FeedbackPackage;
 import com.wt.fastgo_user.fragment.me.IntegralDetailFragment;
 import com.wt.fastgo_user.fragment.me.IntegralFragment;
+import com.wt.fastgo_user.fragment.me.InternationalFragment;
 import com.wt.fastgo_user.fragment.me.MeFragment;
 import com.wt.fastgo_user.fragment.me.OrderFragment;
 import com.wt.fastgo_user.fragment.me.OrderMailFragment;
@@ -66,7 +68,7 @@ public class FragmentFactory {
      * @param position
      * @return
      */
-    public static Fragment createForMain(int position,String type) {
+    public static Fragment createForMain(int position, String type) {
         Fragment fragment = null;
         switch (position) {
             case 0:// 国际转运
@@ -82,9 +84,9 @@ public class FragmentFactory {
                 fragment = new ServiceFragment();
                 break;
             case 4:// 我
-                if (type.equals("2")){
+                if (type.equals("2")) {
                     fragment = new ShopFragment();
-                }else {
+                } else {
                     fragment = new MeFragment();
                 }
 //
@@ -94,7 +96,7 @@ public class FragmentFactory {
         return fragment;
     }
 
-    public static Fragment createByLogin(int resId) {
+    public static Fragment createByLogin(int resId, String id) {
         Fragment fragment = null;
         switch (resId) {
             case R.id.text_login_register:// 注册
@@ -210,6 +212,9 @@ public class FragmentFactory {
             case -1://订单详情
                 fragment = new OrderDetailFragment();
                 break;
+            case R.id.linear_address_edit://修改地址
+                fragment = new AddCityFragment();
+                break;
             case R.id.text_board_add://添加留言
                 fragment = new AddBoardFragment();
                 break;
@@ -237,18 +242,47 @@ public class FragmentFactory {
         }
         return fragment;
     }
-
     /**
      * 根据资源id返回不同的fragment
      */
-    public static Fragment createForAddress(int resId) {
+    public static Fragment createForDirectmail(int resId, String id) {
         Fragment fragment = null;
         switch (resId) {
             case 0:// 收件人
-                fragment = AddDirectmailFragment.newInstance(1);
+                fragment = DirectmailFragment.newInstance(1, id);
                 break;
             case 1:// 发件人
-                fragment = AddDirectmailFragment.newInstance(2);
+                fragment = DirectmailFragment.newInstance(2, id);
+                break;
+        }
+        return fragment;
+    }
+    /**
+     * 根据资源id返回不同的fragment
+     */
+    public static Fragment createForIntegral(int resId, String id) {
+        Fragment fragment = null;
+        switch (resId) {
+            case 0:// 收件人
+                fragment = InternationalFragment.newInstance(1, id);
+                break;
+            case 1:// 发件人
+                fragment = InternationalFragment.newInstance(2, id);
+                break;
+        }
+        return fragment;
+    }
+    /**
+     * 根据资源id返回不同的fragment
+     */
+    public static Fragment createForAddress(int resId, String id) {
+        Fragment fragment = null;
+        switch (resId) {
+            case 0:// 收件人
+                fragment = AddDirectmailFragment.newInstance(1, id);
+                break;
+            case 1:// 发件人
+                fragment = AddDirectmailFragment.newInstance(2, id);
                 break;
         }
         return fragment;
@@ -257,14 +291,14 @@ public class FragmentFactory {
     /**
      * 根据资源id返回不同的fragment
      */
-    public static Fragment createForAdd(int resId) {
+    public static Fragment createForAdd(int resId, String id) {
         Fragment fragment = null;
         switch (resId) {
             case 0:// 收件人
-                fragment = AddInternationalFragment.newInstance(0);
+                fragment = AddInternationalFragment.newInstance(1, id);
                 break;
             case 1:// 发件人
-                fragment = AddInternationalFragment.newInstance(1);
+                fragment = AddInternationalFragment.newInstance(2, id);
                 break;
         }
         return fragment;
@@ -300,6 +334,7 @@ public class FragmentFactory {
         }
         return fragment;
     }
+
     /**
      * 根据资源id返回不同的fragment
      */
@@ -324,6 +359,7 @@ public class FragmentFactory {
         }
         return fragment;
     }
+
     /**
      * 根据资源id返回不同的fragment
      */
@@ -342,6 +378,7 @@ public class FragmentFactory {
         }
         return fragment;
     }
+
     /**
      * 根据资源id返回不同的fragment
      */

@@ -9,6 +9,7 @@ import android.widget.RadioGroup;
 
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.adapter.MainPagerAdapter;
+import com.wt.fastgo_user.applaction.SYApplication;
 import com.wt.fastgo_user.widgets.NoScrollViewPager;
 
 import butterknife.BindView;
@@ -33,6 +34,7 @@ public class MainActivity extends BaseActivity {
     private MainPagerAdapter adapter;
     private String type = "";
     private SharedPreferences loginpPreferences;
+    private SYApplication app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +43,15 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initView();
+        app = (SYApplication) getApplication();
+        app.onCreate();
     }
 
     private void initView() {
         loginpPreferences = getSharedPreferences("userLogin",
                 Context.MODE_PRIVATE);
         type = loginpPreferences.getString("type", "");
-        adapter = new MainPagerAdapter(getSupportFragmentManager(),type);
+        adapter = new MainPagerAdapter(getSupportFragmentManager(), type);
         viewpager.setAdapter(adapter);
         viewpager.setOffscreenPageLimit(5);
         viewpager.setCurrentItem(0);

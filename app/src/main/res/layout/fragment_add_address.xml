@@ -71,6 +71,7 @@
                     android:hint="@string/add_address_phone"
                     android:paddingLeft="@dimen/height_ten"
                     android:paddingRight="@dimen/height_ten"
+                    android:inputType="phone"
                     android:textColor="@color/main_black"
                     android:textColorHint="@color/main_grey73"
                     android:textSize="@dimen/text_size_12" />
@@ -187,6 +188,7 @@
                     android:background="@drawable/btn_feedback"
                     android:hint="@string/add_address_zip_code"
                     android:paddingLeft="@dimen/height_ten"
+                    android:inputType="number"
                     android:paddingRight="@dimen/height_ten"
                     android:textColor="@color/main_black"
                     android:textColorHint="@color/main_grey73"

@@ -169,6 +169,7 @@ public class BoardFragment extends BaseFragment {
                     final JSONObject jsonObject = new JSONObject(response);
                     boolean status = jsonObject.getBoolean("status");
                     String msg = jsonObject.getString("msg");
+
                     if (status) {
                         int num;
                         num = arrayList.get(position).getNum() + 1;
@@ -204,6 +205,7 @@ public class BoardFragment extends BaseFragment {
                     final JSONObject jsonObject = new JSONObject(response);
                     boolean status = jsonObject.getBoolean("status");
                     String msg = jsonObject.getString("msg");
+
                     if (status) {
                         int num;
                         num = arrayList.get(position).getNum() - 1;
@@ -249,6 +251,13 @@ public class BoardFragment extends BaseFragment {
                     final JSONObject jsonObject = new JSONObject(response);
                     boolean status = jsonObject.getBoolean("status");
                     String msg = jsonObject.getString("msg");
+                    int code = jsonObject.getInt("code");
+                    if (code == 501){
+                        SYApplication.loginOut();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
                     if (status) {
                         JSONObject jsonData = jsonObject.getJSONObject("data");
                         JSONArray list = jsonData.getJSONArray("list");

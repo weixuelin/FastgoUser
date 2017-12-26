@@ -1,12 +1,12 @@
 package com.wt.fastgo_user.fragment.me;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
@@ -17,7 +17,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jph.takephoto.app.TakePhoto;
@@ -30,6 +32,8 @@ import com.lljjcoder.citypickerview.utils.Key;
 import com.lljjcoder.citypickerview.widget.PickerFromUrl;
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.applaction.SYApplication;
+import com.wt.fastgo_user.ui.ClickButtonActivity;
+import com.wt.fastgo_user.ui.LoginActivity;
 import com.wt.fastgo_user.widgets.BitmapUtil;
 import com.wt.fastgo_user.widgets.BlockDialog;
 import com.wt.fastgo_user.widgets.Glide_Image;
@@ -45,11 +49,9 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -101,6 +103,7 @@ public class AddDirectmailFragment extends TakePhotoFragment {
         unbinder = ButterKnife.bind(this, view);
         if (getArguments() != null) {
             sign = getArguments().getInt("num");
+            id = getArguments().getString("id");
         }
         return view;
     }
@@ -108,14 +111,15 @@ public class AddDirectmailFragment extends TakePhotoFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        blockDialog = new BlockDialog(getActivity());
         images = new ArrayList<>();
         setListener();
-        blockDialog = new BlockDialog(getActivity());
     }
 
-    public static AddDirectmailFragment newInstance(int num) {
+    public static AddDirectmailFragment newInstance(int num, String id) {
         Bundle args = new Bundle();
         args.putInt("num", num);
+        args.putString("id", id);
         AddDirectmailFragment fragment = new AddDirectmailFragment();
         fragment.setArguments(args);
         return fragment;
@@ -139,6 +143,8 @@ public class AddDirectmailFragment extends TakePhotoFragment {
                 mobile = editAddressPhone.getText().toString();
                 code = editAddressCard.getText().toString();
                 address = editAddressAddress.getText().toString();
+                blockDialog.show();
+                message();
             }
         });
         imageAddressZheng.setOnClickListener(new View.OnClickListener() {
@@ -160,6 +166,66 @@ public class AddDirectmailFragment extends TakePhotoFragment {
             public void onClick(View view) {
                 blockDialog.show();
                 message_city();
+            }
+        });
+        if (!id.equals("")) {
+            blockDialog.show();
+            message_get();
+        }
+    }
+
+    private void message_get() {
+        RequestCall call = SYApplication.genericClient()
+                .url(SYApplication.path_url + "/user/address/edit")
+                .addParams("id", id)
+                .build();
+        call.execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                blockDialog.dismiss();
+                ToastUtil.show(e + "");
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                blockDialog.dismiss();
+                Log.d("toby", "onResponse: " + response);
+                try {
+                    final JSONObject jsonObject = new JSONObject(response);
+                    boolean status = jsonObject.getBoolean("status");
+                    String msg = jsonObject.getString("msg");
+                    if (status) {
+                        JSONObject jsonData = jsonObject.getJSONObject("data");
+                        sign = jsonData.getInt("sign");
+                        type = jsonData.getString("type");
+                        name = jsonData.getString("name");
+                        mobile = jsonData.getString("mobile");
+                        address = jsonData.getString("address");
+                        province = jsonData.getString("province");
+                        city = jsonData.getString("city");
+                        zip_code = jsonData.getString("zip_code");
+                        code = jsonData.getString("code");
+                        back_code = jsonData.getString("back_code");
+                        positive_code = jsonData.getString("positive_code");
+                        is_default = jsonData.getString("is_default");
+                        if (!back_code.equals("")) {
+                            Glide_Image.load(getActivity(), back_code, imageAddressFan);
+                        }
+                        if (!positive_code.equals("")) {
+                            Glide_Image.load(getActivity(), positive_code, imageAddressZheng);
+                        }
+                        textAddressCity.setText(province+"-"+city);
+                        editAddressAddress.setText(address);
+                        editAddressCard.setText(code);
+                        editAddressName.setText(name);
+                        editAddressPhone.setText(mobile);
+                        editAddressZipcode.setText(zip_code);
+                    } else {
+                        ToastUtil.show(msg);
+                    }
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                }
             }
         });
     }
@@ -196,6 +262,7 @@ public class AddDirectmailFragment extends TakePhotoFragment {
                     final JSONObject jsonObject = new JSONObject(response);
                     boolean status = jsonObject.getBoolean("status");
                     String msg = jsonObject.getString("msg");
+
                     if (status) {
                         ToastUtil.show(msg);
                         getActivity().finish();
@@ -270,33 +337,31 @@ public class AddDirectmailFragment extends TakePhotoFragment {
         }
     }
 
-    private Key get(int one,int two,int code ){
-        Key key=new Key();
+    private Key get(int one, int two, int code) {
+        Key key = new Key();
         String id;
-        if(code==2){
-            id=String.valueOf(one);
-        }else {
-            id=String.valueOf(two);
+        if (code == 2) {
+            id = String.valueOf(one);
+        } else {
+            id = String.valueOf(two);
         }
-
-        Log.i("wwww","===="+id);
-
         RequestCall call = SYApplication.genericClient()
                 .url(SYApplication.path_url + "/common/category/get_city")
-                .addParams("id",id )
+                .addParams("id", id)
                 .addParams("type", type).build();
         try {
-            Response response =  call.execute();
-            if(response.isSuccessful()){
-                String str=response.body().string();
-
+            Response response = call.execute();
+            if (response.isSuccessful()) {
+                String str = response.body().string();
+                Log.i("toby", "get: " + str);
                 try {
                     final JSONObject jsonObject = new JSONObject(str);
                     boolean status = jsonObject.getBoolean("status");
                     String msg = jsonObject.getString("msg");
+
                     if (status) {
                         JSONArray data = jsonObject.getJSONArray("data");
-                        List<DbInfo> list=new ArrayList<>();
+                        List<DbInfo> list = new ArrayList<>();
 
                         for (int i = 0; i < data.length(); i++) {
                             DbInfo info = new DbInfo();
@@ -306,11 +371,11 @@ public class AddDirectmailFragment extends TakePhotoFragment {
                         }
 
                         key.setList(list);
-                        if(code==2){
+                        if (code == 2) {
                             key.setType(1);
                             key.setKey(one);
                             DataUtil.getInstance(getActivity()).saveTwoData(key);
-                        }else if(code==3){
+                        } else if (code == 3) {
                             key.setType(3);
                             key.setKey(two);
                             key.setOneId(one);
@@ -328,14 +393,14 @@ public class AddDirectmailFragment extends TakePhotoFragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return  key;
+        return key;
     }
 
 
     private void message_city() {
         RequestCall call = SYApplication.genericClient()
                 .url(SYApplication.path_url + "/common/category/get_city")
-                .addParams("id", id_city)
+                .addParams("id", "8")
                 .addParams("type", type).build();
 
         call.execute(new StringCallback() {
@@ -354,6 +419,7 @@ public class AddDirectmailFragment extends TakePhotoFragment {
                     final JSONObject jsonObject = new JSONObject(response);
                     boolean status = jsonObject.getBoolean("status");
                     String msg = jsonObject.getString("msg");
+
                     if (status) {
                         JSONArray data = jsonObject.getJSONArray("data");
                         for (int i = 0; i < data.length(); i++) {
@@ -386,25 +452,27 @@ public class AddDirectmailFragment extends TakePhotoFragment {
                 .districtCyclic(false)
                 .visibleItemsCount(7)
                 .itemPadding(10)
-                .onlyShowProvinceAndCity(false)
+                .onlyShowProvinceAndCity(true)
                 .build(1, list, map);
 
         PickerFromUrl.setGetDataFromUrl(new PickerFromUrl.GetDataFromUrl() {
             @Override
             public Key getFromUrlTwo(int keyId) {
-                return get(keyId,0,2);
+                return get(keyId, 0, 2);
             }
 
             @Override
             public Key getFromUrlThree(int oneId, int twoId) {
-                return get(oneId,twoId,3);
+                return get(oneId, twoId, 3);
             }
         });
 
         cityPicker.setOnCityItemClickListener(new PickerFromUrl.OnCityItemClickListener() {
             @Override
             public void onSelected(String... citySelected) {
-                textAddressCity.setText(citySelected[0]+ "-" + citySelected[1]+ "-" + citySelected[2]);
+                province = citySelected[0];
+                city = citySelected[1];
+                textAddressCity.setText(citySelected[0] + "-" + citySelected[1]);
             }
 
             @Override

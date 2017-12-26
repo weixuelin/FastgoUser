@@ -149,6 +149,7 @@ public class LoginActivity extends BaseActivity {
                     final JSONObject jsonObject = new JSONObject(response);
                     boolean status = jsonObject.getBoolean("status");
                     String msg = jsonObject.getString("msg");
+
                     if (status) {
                         JSONObject jsonData = jsonObject.getJSONObject("data");
                         String token = jsonData.getString("token");

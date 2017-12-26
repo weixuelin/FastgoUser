@@ -17,7 +17,7 @@ public class AddAddressFragment extends BasePagerFragment {
 
     @Override
     protected Fragment setFragment(int position) {
-        return FragmentFactory.createForAddress(position);
+        return FragmentFactory.createForAddress(position,"");
     }
 
     @Override
@@ -29,6 +29,5 @@ public class AddAddressFragment extends BasePagerFragment {
     protected void setActionBar() {
         ClickButtonActivity activity = (ClickButtonActivity) getActivity();
         activity.textTop.setText(R.string.add_add_address);
-        Log.i("toby", "setActionBar: ");
     }
 }

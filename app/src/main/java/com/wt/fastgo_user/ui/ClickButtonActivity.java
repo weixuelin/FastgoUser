@@ -58,7 +58,7 @@ public class ClickButtonActivity extends BaseActivity {
          */
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
-        ft.replace(R.id.fl_click_button, FragmentFactory.createByLogin(resId));
+        ft.replace(R.id.fl_click_button, FragmentFactory.createByLogin(resId,id));
         ft.commit();
 
         linearBack.setOnClickListener(new View.OnClickListener() {

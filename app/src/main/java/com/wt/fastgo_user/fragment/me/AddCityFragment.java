@@ -16,7 +16,7 @@ public class AddCityFragment extends BasePagerFragment {
 
     @Override
     protected Fragment setFragment(int position) {
-        return FragmentFactory.createForAdd(position);
+        return FragmentFactory.createForAdd(position,"");
     }
 
     @Override
