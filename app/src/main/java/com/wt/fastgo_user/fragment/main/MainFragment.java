@@ -1,17 +1,13 @@
 package com.wt.fastgo_user.fragment.main;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.google.gson.reflect.TypeToken;
 import com.wt.fastgo_user.R;
 import com.wt.fastgo_user.adapter.MainPagerAdapter;
@@ -26,19 +22,14 @@ import com.wt.fastgo_user.widgets.ScrollViewPager;
 import com.wt.fastgo_user.widgets.StartUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zhy.http.okhttp.request.RequestCall;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import okhttp3.Call;
-
-import static com.hyphenate.easeui.model.EaseDefaultEmojiconDatas.getData;
 
 
 public class MainFragment extends BaseFragment implements MyScrollView.OnScrollListener {
@@ -91,15 +82,14 @@ public class MainFragment extends BaseFragment implements MyScrollView.OnScrollL
     LinearLayout linearHomeCenter;
 
 
-
     @Override
     protected View getSuccessView() {
 
-        Log.i("wwwwww","执行到此=======");
+        Log.i("wwwwww", "执行到此=======");
 
-        View view = View.inflate(getActivity(), R.layout.fragment_home, null);
+        View view = View.inflate(getContext(), R.layout.fragment_home, null);
 
-        Log.i("wwwwww","执行到此=======");
+        Log.i("wwwwww", "执行到此=======");
 
         unbinder = ButterKnife.bind(this, view);
         setListener();
@@ -116,6 +106,7 @@ public class MainFragment extends BaseFragment implements MyScrollView.OnScrollL
                 .url(SYApplication.path_url + "/index/banner/lists")
                 .addParams("id", "2")
                 .build();
+
         call.buildCall(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
@@ -283,7 +274,7 @@ public class MainFragment extends BaseFragment implements MyScrollView.OnScrollL
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        ButterKnife.unbind(this);
+
         unbinder.unbind();
     }
 
@@ -297,11 +288,4 @@ public class MainFragment extends BaseFragment implements MyScrollView.OnScrollL
         StartUtils.startActivityById(getActivity(), v.getId());
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
 }

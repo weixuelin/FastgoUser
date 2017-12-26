@@ -1,4 +1,4 @@
-include ':app', ':easeui', ':pickerview', ':pullrefresh_lib'
+include ':app', ':easeui', ':pickerview', ':pullrefresh_lib', ':city'
 project(':easeui').projectDir = new File('easeui')
 project(':pickerview').projectDir = new File('pickerview')
 project(':pullrefresh_lib').projectDir = new File('pullrefresh_lib')

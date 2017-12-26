@@ -1,0 +1,257 @@
+<root>
+    <d1 name="青铜">
+        <d2 name="V">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="IV">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="III">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="II">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="I">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+
+    </d1>
+
+    <d1 name="白银">
+        <d2 name="V">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="IV">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="III">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="II">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="I">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+
+    </d1>
+    <d1 name="黄金">
+        <d2 name="V">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="IV">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="III">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="II">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="I">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+    </d1>
+    <d1 name="铂金">
+        <d2 name="V">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="IV">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="III">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="II">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="I">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+    </d1>
+    <d1 name="星耀">
+        <d2 name="V">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="IV">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="III">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="II">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="I">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+    </d1>
+    <d1 name="王者">
+        <d2 name="V">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="IV">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="III">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="II">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+        <d2 name="I">
+            <d3 name="0星" />
+            <d3 name="1星" />
+            <d3 name="2星" />
+            <d3 name="3星" />
+            <d3 name="4星" />
+            <d3 name="5星" />
+        </d2>
+    </d1>
+</root>

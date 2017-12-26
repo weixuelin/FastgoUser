@@ -55,9 +55,6 @@ import com.wt.fastgo_user.fragment.shop.ShopFragment;
 import com.wt.fastgo_user.fragment.shop.SuppliesFragment;
 import com.wt.fastgo_user.ui.RegisterActivity;
 
-/**
- * Created by Administrator on 2017/10/10 0010.
- */
 
 public class FragmentFactory {
     /**
